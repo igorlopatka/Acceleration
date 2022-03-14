@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45261FF727DF8E5E00AE592D /* RunManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45261FF627DF8E5E00AE592D /* RunManager.swift */; };
 		45531A1327DF5F1300F9897D /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1227DF5F1300F9897D /* HistoryView.swift */; };
 		45531A1527DF60E000F9897D /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1427DF60E000F9897D /* RunView.swift */; };
 		45531A1727DF62B900F9897D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1627DF62B900F9897D /* SettingsView.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45261FF627DF8E5E00AE592D /* RunManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunManager.swift; sourceTree = "<group>"; };
 		45531A1227DF5F1300F9897D /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		45531A1427DF60E000F9897D /* RunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunView.swift; sourceTree = "<group>"; };
 		45531A1627DF62B900F9897D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -110,9 +112,10 @@
 				45531A1427DF60E000F9897D /* RunView.swift */,
 				45531A1227DF5F1300F9897D /* HistoryView.swift */,
 				45531A1627DF62B900F9897D /* SettingsView.swift */,
-				45B805D927C2AAB800E9D57B /* Assets.xcassets */,
+				45261FF627DF8E5E00AE592D /* RunManager.swift */,
 				45B805DE27C2AAB800E9D57B /* Persistence.swift */,
 				45B805E027C2AAB800E9D57B /* Acceleration.xcdatamodeld */,
+				45B805D927C2AAB800E9D57B /* Assets.xcassets */,
 				456D39A727DD33810033186A /* VCRMONO.ttf */,
 				45B805DB27C2AAB800E9D57B /* Preview Content */,
 			);
@@ -277,6 +280,7 @@
 				45531A1727DF62B900F9897D /* SettingsView.swift in Sources */,
 				45B805DF27C2AAB800E9D57B /* Persistence.swift in Sources */,
 				45B805D827C2AAB700E9D57B /* ContentView.swift in Sources */,
+				45261FF727DF8E5E00AE592D /* RunManager.swift in Sources */,
 				45531A1527DF60E000F9897D /* RunView.swift in Sources */,
 				45531A1327DF5F1300F9897D /* HistoryView.swift in Sources */,
 				45B805D627C2AAB700E9D57B /* AccelerationApp.swift in Sources */,
