@@ -18,9 +18,74 @@ struct RunView: View {
 
     
     var body: some View {
-        NavigationView {
-            Text("Run View")
-                .navigationTitle("Run")
+        VStack {
+            HStack {
+                Button(action: {
+                    
+                }) {
+                    Image(systemName: "arrow.counterclockwise")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.black)
+                        .padding()
+                }
+                Spacer()
+                VStack {
+                    HStack {
+                        Text("GPS SIGNAL")
+                        Image(systemName: "network")
+                            .foregroundColor(.green)
+                    }
+                    HStack {
+                        Text("WEATHER")
+                        Image(systemName: "cloud.rain.fill")
+                    }
+                    
+                }
+                .padding()
+            }
+            Spacer()
+            VStack {
+                HStack {
+                    Text("100")
+                        .font(.custom("VCR OSD Mono", size: 140))
+                    Text("km/h")
+                        .font(.custom("VCR OSD Mono", size: 30))
+                        .padding(.top, 70)
+                }
+                HStack {
+                    Text("04.69")
+                        .font(.custom("VCR OSD Mono", size: 100))
+                    Text("s")
+                        .font(.custom("VCR OSD Mono", size: 30))
+                        .padding(.top, 70)
+                }
+            }
+            .padding()
+            
+            Spacer()
+            VStack {
+                HStack {
+                    Text("0-100")
+                    Text("04.69s")
+                }
+                HStack {
+                    Text("0-100")
+                    Text("04.69s")
+                }
+            }
+            Spacer()
+            Button {
+                
+            } label: {
+                Text("Save run")
+            }
+            .frame(width: 150, height: 50)
+            .background(.pink)
+            .cornerRadius(50)
+            
+            Spacer()
         }
     }
     
