@@ -59,7 +59,7 @@ struct RunView: View {
                         .font(.custom("VCR OSD Mono", size: 100))
                     Text("s")
                         .font(.custom("VCR OSD Mono", size: 30))
-                        .padding(.top, 70)
+                        .padding(.top, 50)
                 }
             }
             .padding()
@@ -68,22 +68,32 @@ struct RunView: View {
             VStack {
                 HStack {
                     Text("0-100")
+                        .bold()
                     Text("04.69s")
+                        .bold()
+
                 }
                 HStack {
                     Text("0-100")
+                        .bold()
                     Text("04.69s")
+                        .bold()
                 }
             }
             Spacer()
             Button {
                 
             } label: {
-                Text("Save run")
+                Text("SAVE RUN")
+                    .foregroundColor(.white)
+                    .bold()
             }
-            .frame(width: 150, height: 50)
+            .frame(width: 130, height: 40)
             .background(.pink)
             .cornerRadius(50)
+            .padding(.bottom)
+            .buttonStyle(.plain)
+            
             
             Spacer()
         }
