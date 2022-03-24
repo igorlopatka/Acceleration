@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import CoreLocation
 
-class RunManager {
+class RunManager: CLLocationManager {
+    
     
 }
