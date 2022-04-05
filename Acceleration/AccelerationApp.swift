@@ -9,12 +9,15 @@ import SwiftUI
 
 @main
 struct AccelerationApp: App {
-    let persistenceController = PersistenceController.shared
+    
+    @StateObject private var runDataController = RunDataController()
+    @StateObject var locationController = LocationController()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, runDataController.container.viewContext)
+                .environmentObject(locationController)
         }
     }
 }

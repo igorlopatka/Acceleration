@@ -9,30 +9,30 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
 
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Run.timestamp, ascending: true)],
-        animation: .default)
+    @Environment(\.managedObjectContext) var context
+    @FetchRequest(sortDescriptors: [
+        SortDescriptor(\.title)
+    ]) var runs: FetchedResults<Run>
     
-    private var runs: FetchedResults<Run>
-
+    @StateObject var locationController = LocationController()
+    
     var body: some View {
         TabView {
-            
             RunView()
+                .environmentObject(locationController)
                 .tabItem {
                     Image(systemName: "car")
                     Text("Run")
                 }
-
-            HistoryView()
-            .tabItem {
-                Image(systemName: "clock")
-                Text("History")
-            }
             
-            Text("Settings")
+            HistoryView()
+                .tabItem {
+                    Image(systemName: "clock")
+                    Text("History")
+                }
+            
+            SettingsView()
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("Settings")
@@ -44,6 +44,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
     }
 }

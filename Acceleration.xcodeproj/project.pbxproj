@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		45261FF727DF8E5E00AE592D /* RunManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45261FF627DF8E5E00AE592D /* RunManager.swift */; };
 		45531A1327DF5F1300F9897D /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1227DF5F1300F9897D /* HistoryView.swift */; };
 		45531A1527DF60E000F9897D /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1427DF60E000F9897D /* RunView.swift */; };
 		45531A1727DF62B900F9897D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1627DF62B900F9897D /* SettingsView.swift */; };
 		4583A85C27EB46C300ED0956 /* VCR OSD Mono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 456D39A727DD33810033186A /* VCR OSD Mono.ttf */; };
+		459F49BC27FC7CE100ED92AC /* RunDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F49BB27FC7CE100ED92AC /* RunDataController.swift */; };
+		459F49BE27FC7EB600ED92AC /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F49BD27FC7EB600ED92AC /* LocationController.swift */; };
 		45A2554527E9223200044114 /* RunDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2554427E9223200044114 /* RunDetailsView.swift */; };
 		45B805D627C2AAB700E9D57B /* AccelerationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B805D527C2AAB700E9D57B /* AccelerationApp.swift */; };
 		45B805D827C2AAB700E9D57B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B805D727C2AAB700E9D57B /* ContentView.swift */; };
 		45B805DA27C2AAB800E9D57B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B805D927C2AAB800E9D57B /* Assets.xcassets */; };
 		45B805DD27C2AAB800E9D57B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B805DC27C2AAB800E9D57B /* Preview Assets.xcassets */; };
-		45B805DF27C2AAB800E9D57B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B805DE27C2AAB800E9D57B /* Persistence.swift */; };
 		45B805E227C2AAB800E9D57B /* Acceleration.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 45B805E027C2AAB800E9D57B /* Acceleration.xcdatamodeld */; };
 		45B805EC27C2AAB800E9D57B /* AccelerationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B805EB27C2AAB800E9D57B /* AccelerationTests.swift */; };
 		45B805F627C2AAB800E9D57B /* AccelerationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B805F527C2AAB800E9D57B /* AccelerationUITests.swift */; };
@@ -42,19 +42,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		45261FF627DF8E5E00AE592D /* RunManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunManager.swift; sourceTree = "<group>"; };
 		45531A1227DF5F1300F9897D /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		45531A1427DF60E000F9897D /* RunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunView.swift; sourceTree = "<group>"; };
 		45531A1627DF62B900F9897D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		456D39A727DD33810033186A /* VCR OSD Mono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VCR OSD Mono.ttf"; sourceTree = "<group>"; };
 		4583A85D27EB476F00ED0956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		459F49BB27FC7CE100ED92AC /* RunDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDataController.swift; sourceTree = "<group>"; };
+		459F49BD27FC7EB600ED92AC /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		45A2554427E9223200044114 /* RunDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailsView.swift; sourceTree = "<group>"; };
 		45B805D227C2AAB700E9D57B /* Acceleration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acceleration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B805D527C2AAB700E9D57B /* AccelerationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationApp.swift; sourceTree = "<group>"; };
 		45B805D727C2AAB700E9D57B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		45B805D927C2AAB800E9D57B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B805DC27C2AAB800E9D57B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		45B805DE27C2AAB800E9D57B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		45B805E127C2AAB800E9D57B /* Acceleration.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Acceleration.xcdatamodel; sourceTree = "<group>"; };
 		45B805E727C2AAB800E9D57B /* AccelerationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccelerationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B805EB27C2AAB800E9D57B /* AccelerationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationTests.swift; sourceTree = "<group>"; };
@@ -111,16 +111,16 @@
 		45B805D427C2AAB700E9D57B /* Acceleration */ = {
 			isa = PBXGroup;
 			children = (
-				4583A85D27EB476F00ED0956 /* Info.plist */,
 				45B805D527C2AAB700E9D57B /* AccelerationApp.swift */,
 				45B805D727C2AAB700E9D57B /* ContentView.swift */,
 				45531A1427DF60E000F9897D /* RunView.swift */,
 				45531A1227DF5F1300F9897D /* HistoryView.swift */,
 				45A2554427E9223200044114 /* RunDetailsView.swift */,
 				45531A1627DF62B900F9897D /* SettingsView.swift */,
-				45261FF627DF8E5E00AE592D /* RunManager.swift */,
-				45B805DE27C2AAB800E9D57B /* Persistence.swift */,
+				459F49BD27FC7EB600ED92AC /* LocationController.swift */,
+				459F49BB27FC7CE100ED92AC /* RunDataController.swift */,
 				45B805E027C2AAB800E9D57B /* Acceleration.xcdatamodeld */,
+				4583A85D27EB476F00ED0956 /* Info.plist */,
 				45B805D927C2AAB800E9D57B /* Assets.xcassets */,
 				456D39A727DD33810033186A /* VCR OSD Mono.ttf */,
 				45B805DB27C2AAB800E9D57B /* Preview Content */,
@@ -286,11 +286,11 @@
 			files = (
 				45A2554527E9223200044114 /* RunDetailsView.swift in Sources */,
 				45531A1727DF62B900F9897D /* SettingsView.swift in Sources */,
-				45B805DF27C2AAB800E9D57B /* Persistence.swift in Sources */,
 				45B805D827C2AAB700E9D57B /* ContentView.swift in Sources */,
-				45261FF727DF8E5E00AE592D /* RunManager.swift in Sources */,
+				459F49BE27FC7EB600ED92AC /* LocationController.swift in Sources */,
 				45531A1527DF60E000F9897D /* RunView.swift in Sources */,
 				45531A1327DF5F1300F9897D /* HistoryView.swift in Sources */,
+				459F49BC27FC7CE100ED92AC /* RunDataController.swift in Sources */,
 				45B805D627C2AAB700E9D57B /* AccelerationApp.swift in Sources */,
 				45B805E227C2AAB800E9D57B /* Acceleration.xcdatamodeld in Sources */,
 			);
@@ -457,6 +457,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Acceleration/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use GPS to track your speed";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We use GPS to track your speed";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -488,6 +490,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Acceleration/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use GPS to track your speed";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We use GPS to track your speed";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

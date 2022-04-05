@@ -9,13 +9,10 @@ import SwiftUI
 
 struct RunView: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Run.timestamp, ascending: true)],
-        animation: .default)
-    private var runs: FetchedResults<Run>
+    @Environment(\.managedObjectContext) var context
+    @Environment(\.dismiss) var dismiss
     
-
+    @EnvironmentObject var locationController: LocationController
     
     var body: some View {
         VStack {
@@ -48,9 +45,9 @@ struct RunView: View {
             Spacer()
             VStack {
                 HStack {
-                    Text("100")
-                        .font(.custom("VCR OSD Mono", size: 140))
-                    Text("km/h")
+                    Text(String(locationController.lastSeenLocation?.speed ?? 0))
+                        .font(.custom("VCR OSD Mono", size: 100))
+                    Text("m/s")
                         .font(.custom("VCR OSD Mono", size: 30))
                         .padding(.top, 70)
                 }
@@ -97,15 +94,21 @@ struct RunView: View {
             
             Spacer()
         }
+        .onAppear {
+            if locationController.authorizationStatus == .notDetermined {
+                locationController.requestPermission()
+            }
+        }
+        
     }
     
     private func addItem() {
         withAnimation {
-            let newItem = Run(context: viewContext)
+            let newItem = Run(context: context)
             newItem.timestamp = Date()
             newItem.id = UUID()
             do {
-                try viewContext.save()
+                try context.save()
             } catch {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")

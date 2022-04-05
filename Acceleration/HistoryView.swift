@@ -9,13 +9,10 @@ import SwiftUI
 
 struct HistoryView: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Run.timestamp, ascending: true)],
-        animation: .default)
-    
-    private var runs: FetchedResults<Run>
+    @Environment(\.managedObjectContext) var context
+    @FetchRequest(sortDescriptors: [
+        SortDescriptor(\.title)
+    ]) var runs: FetchedResults<Run>
     
     var body: some View {
         NavigationView {
@@ -41,10 +38,10 @@ struct HistoryView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { runs[$0] }.forEach(viewContext.delete)
+            offsets.map { runs[$0] }.forEach(context.delete)
 
             do {
-                try viewContext.save()
+                try context.save()
             } catch {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
