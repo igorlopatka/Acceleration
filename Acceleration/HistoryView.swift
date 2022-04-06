@@ -21,7 +21,7 @@ struct HistoryView: View {
                     NavigationLink {
                         Text("Item at \(run.timestamp!, formatter: itemFormatter)")
                     } label: {
-                        Text(run.timestamp!, formatter: itemFormatter)
+                        Text(run.title!)
                     }
                 }
                 .onDelete(perform: deleteItems)

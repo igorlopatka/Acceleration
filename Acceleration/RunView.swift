@@ -70,7 +70,7 @@ struct RunView: View {
                         .bold()
                     Text("04.69s")
                         .bold()
-
+                    
                 }
                 HStack {
                     Text("0-100")
@@ -107,15 +107,17 @@ struct RunView: View {
                          keyboardType: .numberPad) { result in
             if let text = result {
                 // Save Run - CoreData operation
+                addRun(title: text)
             } else {}
         })
     }
     
-    private func addItem() {
+    private func addRun(title: String) {
         withAnimation {
-            let newItem = Run(context: context)
-            newItem.timestamp = Date()
-            newItem.id = UUID()
+            let newRun = Run(context: context)
+            newRun.timestamp = Date()
+            newRun.id = UUID()
+            newRun.title = title
             do {
                 try context.save()
             } catch {
