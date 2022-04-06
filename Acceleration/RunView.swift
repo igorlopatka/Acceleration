@@ -14,6 +14,8 @@ struct RunView: View {
     
     @EnvironmentObject var locationController: LocationController
     
+    @State private var showAlert = false
+    
     var body: some View {
         VStack {
             HStack {
@@ -79,7 +81,7 @@ struct RunView: View {
             }
             Spacer()
             Button {
-                
+                showAlert = true
             } label: {
                 Text("SAVE RUN")
                     .foregroundColor(.white)
@@ -99,7 +101,14 @@ struct RunView: View {
                 locationController.requestPermission()
             }
         }
-        
+        .alert(isPresented: $showAlert,
+               TextAlert(title: "Title",
+                         message: "Message",
+                         keyboardType: .numberPad) { result in
+            if let text = result {
+                // Save Run
+            } else {}
+        })
     }
     
     private func addItem() {
