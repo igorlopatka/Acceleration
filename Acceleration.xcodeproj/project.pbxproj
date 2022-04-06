@@ -11,7 +11,7 @@
 		45531A1527DF60E000F9897D /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1427DF60E000F9897D /* RunView.swift */; };
 		45531A1727DF62B900F9897D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1627DF62B900F9897D /* SettingsView.swift */; };
 		4583A85C27EB46C300ED0956 /* VCR OSD Mono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 456D39A727DD33810033186A /* VCR OSD Mono.ttf */; };
-		459F49BC27FC7CE100ED92AC /* RunDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F49BB27FC7CE100ED92AC /* RunDataController.swift */; };
+		459F49BC27FC7CE100ED92AC /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F49BB27FC7CE100ED92AC /* DataController.swift */; };
 		459F49BE27FC7EB600ED92AC /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F49BD27FC7EB600ED92AC /* LocationController.swift */; };
 		45B805D627C2AAB700E9D57B /* AccelerationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B805D527C2AAB700E9D57B /* AccelerationApp.swift */; };
 		45B805D827C2AAB700E9D57B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B805D727C2AAB700E9D57B /* ContentView.swift */; };
@@ -47,7 +47,7 @@
 		45531A1627DF62B900F9897D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		456D39A727DD33810033186A /* VCR OSD Mono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VCR OSD Mono.ttf"; sourceTree = "<group>"; };
 		4583A85D27EB476F00ED0956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		459F49BB27FC7CE100ED92AC /* RunDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDataController.swift; sourceTree = "<group>"; };
+		459F49BB27FC7CE100ED92AC /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		459F49BD27FC7EB600ED92AC /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		45B805D227C2AAB700E9D57B /* Acceleration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acceleration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B805D527C2AAB700E9D57B /* AccelerationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationApp.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 				45531A1627DF62B900F9897D /* SettingsView.swift */,
 				45C1864827FDCF9900DF5C15 /* TextAlert.swift */,
 				459F49BD27FC7EB600ED92AC /* LocationController.swift */,
-				459F49BB27FC7CE100ED92AC /* RunDataController.swift */,
+				459F49BB27FC7CE100ED92AC /* DataController.swift */,
 				45B805E027C2AAB800E9D57B /* Acceleration.xcdatamodeld */,
 				4583A85D27EB476F00ED0956 /* Info.plist */,
 				45B805D927C2AAB800E9D57B /* Assets.xcassets */,
@@ -290,7 +290,7 @@
 				45C1864927FDCF9900DF5C15 /* TextAlert.swift in Sources */,
 				45531A1527DF60E000F9897D /* RunView.swift in Sources */,
 				45531A1327DF5F1300F9897D /* HistoryView.swift in Sources */,
-				459F49BC27FC7CE100ED92AC /* RunDataController.swift in Sources */,
+				459F49BC27FC7CE100ED92AC /* DataController.swift in Sources */,
 				45B805D627C2AAB700E9D57B /* AccelerationApp.swift in Sources */,
 				45B805E227C2AAB800E9D57B /* Acceleration.xcdatamodeld in Sources */,
 			);

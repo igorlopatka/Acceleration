@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct AccelerationApp: App {
     
-    @StateObject private var runDataController = RunDataController()
+    @StateObject private var runDataController = DataController()
     @StateObject var locationController = LocationController()
 
     var body: some Scene {
