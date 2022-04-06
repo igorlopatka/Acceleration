@@ -106,7 +106,7 @@ struct RunView: View {
                          message: "Message",
                          keyboardType: .numberPad) { result in
             if let text = result {
-                // Save Run
+                // Save Run - CoreData operation
             } else {}
         })
     }
