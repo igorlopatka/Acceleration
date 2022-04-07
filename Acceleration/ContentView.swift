@@ -15,13 +15,9 @@ struct ContentView: View {
         SortDescriptor(\.title)
     ]) var runs: FetchedResults<Run>
     
-//    @StateObject var locationController = LocationController()
-//    @StateObject var timerController = TimerController()
-    
     var body: some View {
         TabView {
             RunView()
-//                .environmentObject(locationController)
                 .tabItem {
                     Image(systemName: "car")
                     Text("Run")
