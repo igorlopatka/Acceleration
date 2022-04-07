@@ -12,6 +12,7 @@ struct AccelerationApp: App {
     
     @StateObject private var runDataController = DataController()
     @StateObject var locationController = LocationController()
+    @StateObject var timerController = TimerController()
 
     var body: some Scene {
         WindowGroup {

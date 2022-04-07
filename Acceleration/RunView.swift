@@ -12,7 +12,10 @@ struct RunView: View {
     @Environment(\.managedObjectContext) var context
     @Environment(\.dismiss) var dismiss
     
-    @EnvironmentObject var locationController: LocationController
+    //    @EnvironmentObject var locationController: LocationController
+    @ObservedObject var locationController = LocationController()
+    @ObservedObject var timerController = TimerController()
+    
     
     @State private var showAlert = false
     
@@ -20,7 +23,7 @@ struct RunView: View {
         VStack {
             HStack {
                 Button(action: {
-                    
+                    timerController.start()
                 }) {
                     Image(systemName: "arrow.counterclockwise")
                         .resizable()
@@ -47,14 +50,14 @@ struct RunView: View {
             Spacer()
             VStack {
                 HStack {
-                    Text(String(locationController.lastSeenLocation?.speed ?? 0))
+                    Text(String(format: "%.0f", locationController.lastSeenLocation?.speed ?? 0))
                         .font(.custom("VCR OSD Mono", size: 100))
                     Text("m/s")
                         .font(.custom("VCR OSD Mono", size: 30))
                         .padding(.top, 70)
                 }
                 HStack {
-                    Text("04.69")
+                    Text(String(format: "%.2f", timerController.counter))
                         .font(.custom("VCR OSD Mono", size: 100))
                     Text("s")
                         .font(.custom("VCR OSD Mono", size: 30))
@@ -126,8 +129,8 @@ struct RunView: View {
             }
         }
     }
-    
 }
+
 
 
 
