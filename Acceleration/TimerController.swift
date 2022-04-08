@@ -16,9 +16,11 @@ class TimerController: ObservableObject {
     var timer = Timer()
     
     func start() {
-        mode = .running
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { timer in
-            self.counter += (1.0 / 60.0)
+        if mode != .running {
+            mode = .running
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { timer in
+                self.counter += (1.0 / 60.0)
+            }
         }
     }
     

@@ -18,11 +18,18 @@ struct RunView: View {
     
     @State private var showAlert = false
     
+    var speedInUnits: Double {
+        let speedMS = locationController.lastSeenLocation?.speed ?? 0
+        return (Double(speedMS) * 3.6)
+    }
+    
     var body: some View {
         VStack {
             HStack {
                 Button(action: {
-                    timerController.start()
+                    timerController.timer.invalidate()
+                    timerController.counter = 0.0
+                    timerController.mode = .stopped
                 }) {
                     Image(systemName: "arrow.counterclockwise")
                         .resizable()
@@ -49,9 +56,9 @@ struct RunView: View {
             Spacer()
             VStack {
                 HStack {
-                    Text(String(format: "%.0f", locationController.lastSeenLocation?.speed ?? 0))
+                    Text(String(format: "%.0f", speedInUnits))
                         .font(.custom("VCR OSD Mono", size: 100))
-                    Text("m/s")
+                    Text("km/h")
                         .font(.custom("VCR OSD Mono", size: 30))
                         .padding(.top, 70)
                 }
@@ -103,6 +110,20 @@ struct RunView: View {
                 locationController.requestPermission()
             }
         }
+        .onChange(of: speedInUnits, perform: { newValue in
+//            if newValue = 0...100 {
+//                timerController.start()
+//            } else if newValue > 120 {
+//                timerController.pause()
+//            }
+            
+            switch newValue {
+            case 0...100:
+                timerController.start()
+            default:
+                timerController.pause()
+            }
+        })
         .alert(isPresented: $showAlert,
                TextAlert(title: "Title",
                          message: "Message",
