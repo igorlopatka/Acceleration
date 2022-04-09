@@ -8,7 +8,7 @@
 import CoreData
 import Foundation
 
-class DataController: ObservableObject {
+class DataManager: ObservableObject {
     let container = NSPersistentContainer(name: "Acceleration")
 
     init() {

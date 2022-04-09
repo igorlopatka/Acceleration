@@ -12,8 +12,8 @@ struct RunView: View {
     @Environment(\.managedObjectContext) var context
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var locationController = LocationController()
-    @StateObject var timerController = TimerController()
+    @StateObject var locationController = LocationManager()
+    @StateObject var timerController = TimerManager()
     
     
     @State private var showAlert = false

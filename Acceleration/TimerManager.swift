@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-class TimerController: ObservableObject {
+class TimerManager: ObservableObject {
     
     @Published var counter = 0.00
     @Published var mode: mode = .stopped
@@ -25,9 +25,12 @@ class TimerController: ObservableObject {
     }
     
     func stop() {
-        timer.invalidate()
-        counter = 0
-        mode = .stopped
+        
+        if mode != .stopped {
+            timer.invalidate()
+            counter = 0
+            mode = .stopped
+        }
     }
     
     func pause() {

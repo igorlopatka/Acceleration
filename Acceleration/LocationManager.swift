@@ -9,7 +9,7 @@ import CoreLocation
 import Foundation
 import SwiftUI
 
-class LocationController: NSObject, ObservableObject, CLLocationManagerDelegate {
+class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var authorizationStatus: CLAuthorizationStatus
     @Published var lastSeenLocation: CLLocation?

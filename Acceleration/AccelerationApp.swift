@@ -10,15 +10,12 @@ import SwiftUI
 @main
 struct AccelerationApp: App {
     
-    @StateObject private var runDataController = DataController()
-    @StateObject var locationController = LocationController()
-    @StateObject var timerController = TimerController()
+    @StateObject private var runDataController = DataManager()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, runDataController.container.viewContext)
-                .environmentObject(locationController)
         }
     }
 }
