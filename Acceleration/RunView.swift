@@ -73,22 +73,22 @@ struct RunView: View {
             .padding()
             
             Spacer()
-            VStack {
-                HStack {
-                    Text("0-100")
-                        .bold()
-                    Text("04.69s")
-                        .bold()
-                    
-                }
-                HStack {
-                    Text("0-100")
-                        .bold()
-                    Text("04.69s")
-                        .bold()
-                }
-            }
-            Spacer()
+//            VStack {
+//                HStack {
+//                    Text("0-100")
+//                        .bold()
+//                    Text("04.69s")
+//                        .bold()
+//
+//                }
+//                HStack {
+//                    Text("0-100")
+//                        .bold()
+//                    Text("04.69s")
+//                        .bold()
+//                }
+//            }
+//            Spacer()
             Button {
                 showAlert = true
             } label: {
@@ -111,11 +111,6 @@ struct RunView: View {
             }
         }
         .onChange(of: speedInUnits, perform: { newValue in
-//            if newValue = 0...100 {
-//                timerController.start()
-//            } else if newValue > 120 {
-//                timerController.pause()
-//            }
             
             switch newValue {
             case 0...100:
