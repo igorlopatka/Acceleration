@@ -23,6 +23,11 @@ struct RunView: View {
         return (Double(speedMS) * 3.6)
     }
     
+    var gpsAccuracy: Double {
+        let accuracy =  locationController.lastSeenLocation?.horizontalAccuracy
+        return Double(accuracy ?? 0)
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -41,9 +46,25 @@ struct RunView: View {
                 Spacer()
                 VStack {
                     HStack {
+                        
+                        // Make it better in the future!
+                        
                         Text("GPS SIGNAL")
-                        Image(systemName: "network")
-                            .foregroundColor(.green)
+                        if (gpsAccuracy < 0) {
+                            Image(systemName: "network")
+                                .foregroundColor(.black)
+                        } else if (gpsAccuracy > 163) {
+                            Image(systemName: "network")
+                                .foregroundColor(.red)
+                        } else if (gpsAccuracy > 48) {
+                            Image(systemName: "network")
+                                .foregroundColor(.yellow)
+                        } else {
+                            Image(systemName: "network")
+                                .foregroundColor(.green)
+                        }
+                        
+                        
                     }
                     HStack {
                         Text("WEATHER")
