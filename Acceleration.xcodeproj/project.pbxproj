@@ -111,15 +111,8 @@
 			children = (
 				45B805D527C2AAB700E9D57B /* AccelerationApp.swift */,
 				45B805D727C2AAB700E9D57B /* ContentView.swift */,
-				45531A1427DF60E000F9897D /* RunView.swift */,
-				45531A1227DF5F1300F9897D /* HistoryView.swift */,
-				457CBB9628056D7300E5F637 /* DetailsView.swift */,
-				45C4D5BD2805FA98008AC09B /* SettingsView.swift */,
-				45C1864827FDCF9900DF5C15 /* TextAlert.swift */,
-				459F49BD27FC7EB600ED92AC /* LocationManager.swift */,
-				459F49BB27FC7CE100ED92AC /* DataManager.swift */,
-				45A8BB7327FF6ABE00644FA1 /* TimerManager.swift */,
-				45C4D5BB2805F9E8008AC09B /* Settings.swift */,
+				45C4D5BF2806073D008AC09B /* View */,
+				45C4D5C028060750008AC09B /* Model */,
 				45B805E027C2AAB800E9D57B /* Acceleration.xcdatamodeld */,
 				4583A85D27EB476F00ED0956 /* Info.plist */,
 				45B805D927C2AAB800E9D57B /* Assets.xcassets */,
@@ -135,6 +128,29 @@
 				45B805DC27C2AAB800E9D57B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		45C4D5BF2806073D008AC09B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				45531A1427DF60E000F9897D /* RunView.swift */,
+				45531A1227DF5F1300F9897D /* HistoryView.swift */,
+				457CBB9628056D7300E5F637 /* DetailsView.swift */,
+				45C4D5BD2805FA98008AC09B /* SettingsView.swift */,
+				45C1864827FDCF9900DF5C15 /* TextAlert.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		45C4D5C028060750008AC09B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				459F49BD27FC7EB600ED92AC /* LocationManager.swift */,
+				459F49BB27FC7CE100ED92AC /* DataManager.swift */,
+				45A8BB7327FF6ABE00644FA1 /* TimerManager.swift */,
+				45C4D5BB2805F9E8008AC09B /* Settings.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
