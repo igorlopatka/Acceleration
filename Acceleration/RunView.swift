@@ -167,9 +167,6 @@ struct RunView: View {
     }
 }
 
-
-
-
 struct RunView_Previews: PreviewProvider {
     static var previews: some View {
         RunView()
