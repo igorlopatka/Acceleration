@@ -16,7 +16,7 @@ struct DetailsView: View {
     var body: some View {
         VStack {
             Map(coordinateRegion: $mapRegion)
-                .frame(width: .infinity, height: 300, alignment: .top)
+                .frame(height: 300)
             HStack {
                 Text("Run Title")
                     .padding(20)
