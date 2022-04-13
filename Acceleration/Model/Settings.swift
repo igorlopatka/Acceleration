@@ -14,9 +14,8 @@ class Settings: ObservableObject {
     @Published var optionalStartRange = 100
     @Published var optionalFinishRange = 200
     @Published var unitsMultiplier = 3.6
+    @Published var unitsTitle = "km/h"
     @Published var soundIsOn = true
     
     let values = [0,20,40,60,80,100,120,140,160,180,200,220,240,260,280,300]
-    
-    
 }
