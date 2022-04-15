@@ -95,22 +95,25 @@ struct RunView: View {
             .padding()
             
             Spacer()
-//            VStack {
-//                HStack {
-//                    Text("0-100")
-//                        .bold()
-//                    Text("04.69s")
-//                        .bold()
-//
-//                }
-//                HStack {
-//                    Text("0-100")
-//                        .bold()
-//                    Text("04.69s")
-//                        .bold()
-//                }
-//            }
-//            Spacer()
+            VStack {
+                HStack {
+                    Text("\(settings.startRange) - \(settings.finishRange)")
+                        .bold()
+                    Text("04.69s")
+                        .bold()
+
+                }
+                
+                if settings.optionalRunIsActive {
+                    HStack {
+                        Text("\(settings.optionalStartRange) - \(settings.optionalFinishRange)")
+                            .bold()
+                        Text("04.69s")
+                            .bold()
+                    }
+                }
+            }
+            Spacer()
             Button {
                 showAlert = true
             } label: {
