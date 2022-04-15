@@ -14,13 +14,14 @@ struct RunView: View {
     
     @StateObject var locationController = LocationManager()
     @StateObject var timerController = TimerManager()
+    @ObservedObject var settings: Settings
     
     
     @State private var showAlert = false
     
     var speedInUnits: Double {
         let speedMS = locationController.lastSeenLocation?.speed ?? 0
-        return (Double(speedMS) * 3.6)
+        return (Double(speedMS) * settings.unitsMultiplier)
     }
     
     var gpsAccuracy: Double {
@@ -79,7 +80,7 @@ struct RunView: View {
                 HStack {
                     Text(String(format: "%.0f", speedInUnits))
                         .font(.custom("VCR OSD Mono", size: 100))
-                    Text("km/h")
+                    Text("\(settings.unitsTitle)")
                         .font(.custom("VCR OSD Mono", size: 30))
                         .padding(.top, 70)
                 }
@@ -169,6 +170,6 @@ struct RunView: View {
 
 struct RunView_Previews: PreviewProvider {
     static var previews: some View {
-        RunView()
+        RunView(settings: Settings())
     }
 }

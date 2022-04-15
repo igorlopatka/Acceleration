@@ -9,12 +9,10 @@ import SwiftUI
 
 struct SettingsView: View {
     
-@StateObject var settings = Settings()
+    @ObservedObject var settings: Settings
     
-    enum Units {
-        case kilometers, miles
-    }
-        
+    var unitSelected = Settings.Units.self
+    
     var body: some View {
         NavigationView {
             Form {
@@ -55,13 +53,16 @@ struct SettingsView: View {
                         }
                         
                         Spacer()
-                        Picker("Units: ", selection: $settings.unitsMultiplier) {
-                            Text("Kilometers").tag(3.6)
-                            Text("Miles").tag(2.2369)
+                        Picker("Units: ", selection: $settings.unit) {
+                            Text("Kilometers").tag(unitSelected.kilometers)
+                            Text("Miles").tag(unitSelected.miles)
                         }
                         .pickerStyle(SegmentedPickerStyle())
+                        .onChange(of: settings.unit) { newValue in
+                            settings.updateUnits(unit: settings.unit)
+                        }
                     }
-                    
+                
                 }
                 
                 Section(header: Text("Sound")) {
@@ -76,6 +77,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(settings: Settings())
     }
 }
