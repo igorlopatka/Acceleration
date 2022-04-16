@@ -147,7 +147,7 @@ struct RunView: View {
         .alert(isPresented: $showAlert,
                TextAlert(title: "Title",
                          message: "Message",
-                         keyboardType: .numberPad) { result in
+                         keyboardType: .default) { result in
             if let text = result {
                 // Save Run - CoreData operation
                 addRun(title: text)
