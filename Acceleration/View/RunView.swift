@@ -13,7 +13,7 @@ struct RunView: View {
     @Environment(\.dismiss) var dismiss
     
     @StateObject var locationController = LocationManager()
-    @StateObject var timerController = TimerManager()
+    @StateObject var timer = TimerManager()
     @ObservedObject var settings: Settings
     
     
@@ -33,9 +33,9 @@ struct RunView: View {
         VStack {
             HStack {
                 Button(action: {
-                    timerController.timer.invalidate()
-                    timerController.counter = 0.0
-                    timerController.mode = .stopped
+                    timer.timer.invalidate()
+                    timer.counter = 0.0
+                    timer.mode = .stopped
                 }) {
                     Image(systemName: "arrow.counterclockwise")
                         .resizable()
@@ -85,7 +85,7 @@ struct RunView: View {
                         .padding(.top, 70)
                 }
                 HStack {
-                    Text(String(format: "%.2f", timerController.counter))
+                    Text(String(format: "%.2f", timer.counter))
                         .font(.custom("VCR OSD Mono", size: 100))
                     Text("s")
                         .font(.custom("VCR OSD Mono", size: 30))
@@ -137,11 +137,14 @@ struct RunView: View {
         }
         .onChange(of: speedInUnits, perform: { newValue in
             
+            let start = Double(settings.startRange)
+            let finish = Double(settings.finishRange)
+            
             switch newValue {
-            case 0...100:
-                timerController.start()
+            case start...finish:
+                timer.start()
             default:
-                timerController.pause()
+                timer.pause()
             }
         })
         .alert(isPresented: $showAlert,
