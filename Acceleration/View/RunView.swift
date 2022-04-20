@@ -21,7 +21,15 @@ struct RunView: View {
     
     var speedInUnits: Double {
         let speedMS = locationController.lastSeenLocation?.speed ?? 0
-        return (Double(speedMS) * settings.unitsMultiplier)
+        let speedInUnits = Double(speedMS) * settings.unitsMultiplier
+        
+        if speedInUnits <= 2 {
+            return 0
+        } else {
+            return speedInUnits
+        }
+        
+        
     }
     
     var gpsAccuracy: Double {
@@ -101,7 +109,6 @@ struct RunView: View {
                         .bold()
                     Text("04.69s")
                         .bold()
-
                 }
                 
                 if settings.optionalRunIsActive {
