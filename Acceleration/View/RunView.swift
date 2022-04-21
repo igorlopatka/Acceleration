@@ -14,6 +14,7 @@ struct RunView: View {
     
     @StateObject var locationController = LocationManager()
     @StateObject var timer = TimerManager()
+    @StateObject var optionalTimer = TimerManager()
     @ObservedObject var settings: Settings
 
     
@@ -71,10 +72,6 @@ struct RunView: View {
                                 .foregroundColor(.green)
                         }
                     }
-                    HStack {
-                        Text("WEATHER")
-                        Image(systemName: "cloud.rain.fill")
-                    }
                 }
                 .padding()
             }
@@ -105,7 +102,7 @@ struct RunView: View {
                 HStack {
                     Text("\(settings.startRange) - \(settings.finishRange)")
                         .bold()
-                    Text("04.69s")
+                    Text((String(format: "%.2f", timer.counter)) + "s")
                         .bold()
                 }
                 
@@ -113,7 +110,7 @@ struct RunView: View {
                     HStack {
                         Text("\(settings.optionalStartRange) - \(settings.optionalFinishRange)")
                             .bold()
-                        Text("04.69s")
+                        Text((String(format: "%.2f", optionalTimer.counter)) + "s")
                             .bold()
                     }
                 }
@@ -155,7 +152,6 @@ struct RunView: View {
                          message: "Message",
                          keyboardType: .default) { result in
             if let text = result {
-                // Save Run - CoreData operation
                 addRun(title: text)
             } else {}
         })
@@ -166,7 +162,6 @@ struct RunView: View {
             let newRun = Run(context: context)
             newRun.timestamp = Date()
             newRun.id = UUID()
-            newRun.title = title
             do {
                 try context.save()
             } catch {
