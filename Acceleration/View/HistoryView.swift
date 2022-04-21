@@ -13,19 +13,21 @@ struct HistoryView: View {
     @FetchRequest(sortDescriptors: [
         SortDescriptor(\.title)
     ]) var runs: FetchedResults<Run>
-    
-    @State private var showingDetails = false
-
-    
+        
     var body: some View {
         NavigationView {
             List {
                 ForEach(runs) { run in
-                    Text("Item at \(run.timestamp!, formatter: itemFormatter)")
+                    NavigationLink {
+                        DetailsView(run: run)
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(run.title ?? "No title")
+                                .font(.headline)
+                        }
+                    }
                 }
                 .onDelete(perform: deleteItems)
-                .onTapGesture {showingDetails.toggle()}
-                .sheet(isPresented: $showingDetails) {DetailsView()}
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

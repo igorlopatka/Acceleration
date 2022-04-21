@@ -15,7 +15,7 @@ struct RunView: View {
     @StateObject var locationController = LocationManager()
     @StateObject var timer = TimerManager()
     @ObservedObject var settings: Settings
-    
+
     
     @State private var showAlert = false
     
@@ -72,8 +72,6 @@ struct RunView: View {
                             Image(systemName: "network")
                                 .foregroundColor(.green)
                         }
-                        
-                        
                     }
                     HStack {
                         Text("WEATHER")

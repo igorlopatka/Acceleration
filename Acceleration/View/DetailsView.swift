@@ -11,6 +11,8 @@ import MapKit
 
 struct DetailsView: View {
     
+    let run: Run
+    
     @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
     
     var body: some View {
@@ -18,7 +20,7 @@ struct DetailsView: View {
             Map(coordinateRegion: $mapRegion)
                 .frame(height: 300)
             HStack {
-                Text("Run Title")
+                Text(run.title ?? "No title")
                     .padding(20)
                     .font(.largeTitle)
                 Spacer()
@@ -28,8 +30,8 @@ struct DetailsView: View {
     }
 }
 
-struct DetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailsView()
-    }
-}
+//struct DetailsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DetailsView()
+//    }
+//}
