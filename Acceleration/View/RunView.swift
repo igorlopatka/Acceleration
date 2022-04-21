@@ -87,11 +87,11 @@ struct RunView: View {
                         .padding(.top, 70)
                 }
                 HStack {
-                    Text(String(format: "%.2f", timer.counter))
+                    Text(String(format: "%.1f", timer.counter))
                         .font(.custom("VCR OSD Mono", size: 100))
-                    Text("s")
+                    Text("sec")
                         .font(.custom("VCR OSD Mono", size: 30))
-                        .padding(.top, 50)
+                        .padding(.top, 70)
                 }
             }
             .padding()
@@ -102,7 +102,7 @@ struct RunView: View {
                 HStack {
                     Text("\(settings.startRange) - \(settings.finishRange)")
                         .bold()
-                    Text((String(format: "%.2f", timer.counter)) + "s")
+                    Text((String(format: "%.1f", timer.counter)) + "s")
                         .bold()
                 }
                 
@@ -110,7 +110,7 @@ struct RunView: View {
                     HStack {
                         Text("\(settings.optionalStartRange) - \(settings.optionalFinishRange)")
                             .bold()
-                        Text((String(format: "%.2f", optionalTimer.counter)) + "s")
+                        Text((String(format: "%.1f", optionalTimer.counter)) + "s")
                             .bold()
                     }
                 }
