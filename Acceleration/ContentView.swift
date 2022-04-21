@@ -13,9 +13,7 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var context
     @FetchRequest(sortDescriptors: [
         SortDescriptor(\.title)
-    ])
-    
-    var runs: FetchedResults<Run>
+    ]) var runs: FetchedResults<Run>
     
     @StateObject var settings = Settings()
     

@@ -46,23 +46,14 @@ struct SettingsView: View {
                 }
                 
                 Section(header: Text("Units (per hour)")) {
-                    VStack {
-                        HStack {
-//                            Text("Units: \($settings.unitSelected)")
-                            Spacer()
-                        }
-                        
-                        Spacer()
-                        Picker("Units: ", selection: $settings.unit) {
-                            Text("Kilometers").tag(unitSelected.kilometers)
-                            Text("Miles").tag(unitSelected.miles)
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
-                        .onChange(of: settings.unit) { newValue in
-                            settings.updateUnits(unit: settings.unit)
-                        }
+                    Picker("Units: ", selection: $settings.unit) {
+                        Text("Kilometers").tag(unitSelected.kilometers)
+                        Text("Miles").tag(unitSelected.miles)
                     }
-                
+                    .pickerStyle(SegmentedPickerStyle())
+                    .onChange(of: settings.unit) { newValue in
+                        settings.updateUnits(unit: settings.unit)
+                    }
                 }
                 
                 Section(header: Text("Sound")) {

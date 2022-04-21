@@ -28,8 +28,6 @@ struct RunView: View {
         } else {
             return speedInUnits
         }
-        
-        
     }
     
     var gpsAccuracy: Double {
@@ -77,11 +75,12 @@ struct RunView: View {
                         Text("WEATHER")
                         Image(systemName: "cloud.rain.fill")
                     }
-                    
                 }
                 .padding()
             }
+            
             Spacer()
+            
             VStack {
                 HStack {
                     Text(String(format: "%.0f", speedInUnits))
@@ -101,6 +100,7 @@ struct RunView: View {
             .padding()
             
             Spacer()
+            
             VStack {
                 HStack {
                     Text("\(settings.startRange) - \(settings.finishRange)")
@@ -131,8 +131,7 @@ struct RunView: View {
             .cornerRadius(50)
             .padding(.bottom)
             .buttonStyle(.plain)
-            
-            
+        
             Spacer()
         }
         .onAppear {
@@ -141,7 +140,6 @@ struct RunView: View {
             }
         }
         .onChange(of: speedInUnits, perform: { newValue in
-            
             let start = Double(settings.startRange)
             let finish = Double(settings.finishRange)
             

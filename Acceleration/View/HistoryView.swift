@@ -42,7 +42,6 @@ struct HistoryView: View {
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { runs[$0] }.forEach(context.delete)
-
             do {
                 try context.save()
             } catch {
@@ -52,19 +51,6 @@ struct HistoryView: View {
         }
     }
 }
-
-struct RunDetailsView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
