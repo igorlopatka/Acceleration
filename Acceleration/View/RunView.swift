@@ -162,6 +162,11 @@ struct RunView: View {
             let newRun = Run(context: context)
             newRun.timestamp = Date()
             newRun.id = UUID()
+            newRun.title = title
+            newRun.start = Int16(settings.startRange)
+            newRun.finish = Int16(settings.finishRange)
+            newRun.time = timer.counter
+            newRun.unit = settings.unitsTitle
             do {
                 try context.save()
             } catch {

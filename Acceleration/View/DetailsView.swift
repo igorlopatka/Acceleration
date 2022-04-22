@@ -20,9 +20,14 @@ struct DetailsView: View {
             Map(coordinateRegion: $mapRegion)
                 .frame(height: 300)
             HStack {
-                Text(run.title ?? "No title")
-                    .padding(20)
-                    .font(.largeTitle)
+                VStack {
+                    Text(run.title ?? "No title")
+                        .padding(20)
+                        .font(.largeTitle)
+                    Text("\(String(run.start)) - \(String(run.finish))")
+                    Text(String(format: "%.2f", run.time) + " sec")
+                    Text("Units: " + (run.unit ?? "no unit"))
+                }
                 Spacer()
             }
             Spacer()
@@ -30,8 +35,3 @@ struct DetailsView: View {
     }
 }
 
-//struct DetailsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DetailsView(run: Run)
-//    }
-//}
