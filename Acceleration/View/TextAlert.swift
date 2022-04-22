@@ -23,17 +23,22 @@ public struct TextAlert {
 extension UIAlertController {
   convenience init(alert: TextAlert) {
     self.init(title: alert.title, message: alert.message, preferredStyle: .alert)
+      
+    // pink theme inside of alert
+    UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .systemPink
+      
     addTextField {
        $0.placeholder = alert.placeholder
        $0.keyboardType = alert.keyboardType
     }
+
     if let cancel = alert.cancel {
       addAction(UIAlertAction(title: cancel, style: .cancel) { _ in
         alert.action(nil)
       })
     }
     if let secondaryActionTitle = alert.secondaryActionTitle {
-       addAction(UIAlertAction(title: secondaryActionTitle, style: .default, handler: { _ in
+        addAction(UIAlertAction(title: secondaryActionTitle, style: .default, handler: { _ in
          alert.secondaryAction?()
        }))
     }

@@ -48,7 +48,7 @@ struct RunView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                         .padding()
                 }
                 Spacer()
@@ -148,8 +148,8 @@ struct RunView: View {
             }
         })
         .alert(isPresented: $showAlert,
-               TextAlert(title: "Title",
-                         message: "Message",
+               TextAlert(title: "SAVE RUN",
+                         message: "",
                          keyboardType: .default) { result in
             if let text = result {
                 addRun(title: text)
