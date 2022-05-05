@@ -31,7 +31,7 @@ class Settings: ObservableObject {
             unitsTitle = "km/h"
         case .miles:
             unitsMultiplier = 2.2369
-            unitsTitle = "m/h"
+            unitsTitle = "mi/h"
         }
     }
 }
