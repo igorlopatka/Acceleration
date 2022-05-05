@@ -1,4 +1,4 @@
-#Acceleration
+# Acceleration
 
 Stack: SwiftUI, CoreData, CoreMotion, UIKit, AVKit(soon)
 
