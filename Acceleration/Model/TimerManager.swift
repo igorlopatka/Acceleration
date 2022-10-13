@@ -11,9 +11,10 @@ import SwiftUI
 
 class TimerManager: ObservableObject {
     
+    @Published var timer = Timer()
     @Published var counter = 0.00
     @Published var mode: mode = .stopped
-    var timer = Timer()
+    
     
     func start() {
         if mode != .running {
@@ -22,6 +23,12 @@ class TimerManager: ObservableObject {
                 self.counter += (1.0 / 60.0)
             }
         }
+    }
+    
+    func reset() {
+        timer.invalidate()
+        counter = 0.0
+        mode = .stopped
     }
     
     func stop() {
