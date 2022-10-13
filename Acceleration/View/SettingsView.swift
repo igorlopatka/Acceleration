@@ -9,9 +9,9 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @ObservedObject var settings: Settings
+    @ObservedObject var settings: SettingsManager
     
-    var unitSelected = Settings.Units.self
+    var unitSelected = SettingsManager.Units.self
     
     var body: some View {
         NavigationView {
@@ -68,6 +68,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(settings: Settings())
+        SettingsView(settings: SettingsManager())
     }
 }
