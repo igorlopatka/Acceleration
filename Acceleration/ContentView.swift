@@ -15,7 +15,7 @@ struct ContentView: View {
         SortDescriptor(\.title)
     ]) var runs: FetchedResults<Run>
     
-    @StateObject var settings = Settings()
+    @StateObject var settings = SettingsManager()
     
     var body: some View {
         TabView {

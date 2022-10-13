@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Settings: ObservableObject {
+class SettingsManager: ObservableObject {
     @Published var startRange = 0
     @Published var finishRange = 100
     @Published var optionalRunIsActive = false

@@ -15,7 +15,7 @@ struct RunView: View {
     @StateObject var locationController = LocationManager()
     @StateObject var timer = TimerManager()
     @StateObject var optionalTimer = TimerManager()
-    @ObservedObject var settings: Settings
+    @ObservedObject var settings: SettingsManager
 
     
     @State private var showAlert = false
@@ -40,9 +40,7 @@ struct RunView: View {
         VStack {
             HStack {
                 Button(action: {
-                    timer.timer.invalidate()
-                    timer.counter = 0.0
-                    timer.mode = .stopped
+                    timer.reset()
                 }) {
                     Image(systemName: "arrow.counterclockwise")
                         .resizable()
@@ -179,6 +177,6 @@ struct RunView: View {
 
 struct RunView_Previews: PreviewProvider {
     static var previews: some View {
-        RunView(settings: Settings())
+        RunView(settings: SettingsManager())
     }
 }

@@ -6,19 +6,13 @@
 //
 
 import SwiftUI
-import MapKit
-
 
 struct DetailsView: View {
     
     let run: Run
     
-    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
-    
     var body: some View {
         VStack {
-            Map(coordinateRegion: $mapRegion)
-                .frame(height: 300)
             HStack {
                 VStack {
                     Text(run.title ?? "No title")
