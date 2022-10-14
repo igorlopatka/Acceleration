@@ -16,7 +16,7 @@ class SettingsManager: ObservableObject {
     @Published var unit = Units.kilometers
     @Published var unitsMultiplier = 3.6
     @Published var unitsTitle = "km/h"
-    @Published var soundIsOn = true
+    @Published var soundActive = true
     
     let values = [0,20,40,60,80,100,120,140,160,180,200,220,240,260,280,300]
     
