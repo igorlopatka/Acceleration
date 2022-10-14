@@ -117,8 +117,9 @@
 			children = (
 				45B805D527C2AAB700E9D57B /* AccelerationApp.swift */,
 				45B805D727C2AAB700E9D57B /* ContentView.swift */,
-				45C4D5BF2806073D008AC09B /* View */,
-				45C4D5C028060750008AC09B /* Model */,
+				45C4D5BF2806073D008AC09B /* Views */,
+				45C2B6A328F9F8D800633B4A /* Managers */,
+				45C4D5C028060750008AC09B /* Models */,
 				45B805E027C2AAB800E9D57B /* Acceleration.xcdatamodeld */,
 				457C104028F9F42800E8DD77 /* finish.mp3 */,
 				4583A85D27EB476F00ED0956 /* Info.plist */,
@@ -137,7 +138,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		45C4D5BF2806073D008AC09B /* View */ = {
+		45C2B6A328F9F8D800633B4A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				459F49BD27FC7EB600ED92AC /* LocationManager.swift */,
+				459F49BB27FC7CE100ED92AC /* DataManager.swift */,
+				45A8BB7327FF6ABE00644FA1 /* TimerManager.swift */,
+				45C4D5BB2805F9E8008AC09B /* SettingsManager.swift */,
+				457C103E28F9F37700E8DD77 /* SoundManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		45C4D5BF2806073D008AC09B /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				45531A1427DF60E000F9897D /* RunView.swift */,
@@ -146,20 +159,15 @@
 				45C4D5BD2805FA98008AC09B /* SettingsView.swift */,
 				45C1864827FDCF9900DF5C15 /* TextAlert.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		45C4D5C028060750008AC09B /* Model */ = {
+		45C4D5C028060750008AC09B /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				4584C88828F8851000AB5A4C /* RunViewModel.swift */,
-				459F49BD27FC7EB600ED92AC /* LocationManager.swift */,
-				459F49BB27FC7CE100ED92AC /* DataManager.swift */,
-				45A8BB7327FF6ABE00644FA1 /* TimerManager.swift */,
-				45C4D5BB2805F9E8008AC09B /* SettingsManager.swift */,
-				457C103E28F9F37700E8DD77 /* SoundManager.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
