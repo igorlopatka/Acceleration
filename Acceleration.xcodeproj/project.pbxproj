@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		45531A1327DF5F1300F9897D /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1227DF5F1300F9897D /* HistoryView.swift */; };
 		45531A1527DF60E000F9897D /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1427DF60E000F9897D /* RunView.swift */; };
+		457C103F28F9F37700E8DD77 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457C103E28F9F37700E8DD77 /* SoundManager.swift */; };
+		457C104128F9F42800E8DD77 /* finish.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 457C104028F9F42800E8DD77 /* finish.mp3 */; };
 		457CBB9728056D7300E5F637 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457CBB9628056D7300E5F637 /* DetailsView.swift */; };
 		4583A85C27EB46C300ED0956 /* VCR OSD Mono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 456D39A727DD33810033186A /* VCR OSD Mono.ttf */; };
 		4584C88928F8851000AB5A4C /* RunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584C88828F8851000AB5A4C /* RunViewModel.swift */; };
@@ -46,6 +48,8 @@
 		45531A1227DF5F1300F9897D /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		45531A1427DF60E000F9897D /* RunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunView.swift; sourceTree = "<group>"; };
 		456D39A727DD33810033186A /* VCR OSD Mono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VCR OSD Mono.ttf"; sourceTree = "<group>"; };
+		457C103E28F9F37700E8DD77 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		457C104028F9F42800E8DD77 /* finish.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = finish.mp3; path = ../../../../Downloads/finish.mp3; sourceTree = "<group>"; };
 		457CBB9628056D7300E5F637 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		4583A85D27EB476F00ED0956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4584C88828F8851000AB5A4C /* RunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunViewModel.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 				45C4D5BF2806073D008AC09B /* View */,
 				45C4D5C028060750008AC09B /* Model */,
 				45B805E027C2AAB800E9D57B /* Acceleration.xcdatamodeld */,
+				457C104028F9F42800E8DD77 /* finish.mp3 */,
 				4583A85D27EB476F00ED0956 /* Info.plist */,
 				45B805D927C2AAB800E9D57B /* Assets.xcassets */,
 				456D39A727DD33810033186A /* VCR OSD Mono.ttf */,
@@ -152,6 +157,7 @@
 				459F49BB27FC7CE100ED92AC /* DataManager.swift */,
 				45A8BB7327FF6ABE00644FA1 /* TimerManager.swift */,
 				45C4D5BB2805F9E8008AC09B /* SettingsManager.swift */,
+				457C103E28F9F37700E8DD77 /* SoundManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B805DD27C2AAB800E9D57B /* Preview Assets.xcassets in Resources */,
+				457C104128F9F42800E8DD77 /* finish.mp3 in Resources */,
 				4583A85C27EB46C300ED0956 /* VCR OSD Mono.ttf in Resources */,
 				45B805DA27C2AAB800E9D57B /* Assets.xcassets in Resources */,
 			);
@@ -292,6 +299,7 @@
 				45C1864927FDCF9900DF5C15 /* TextAlert.swift in Sources */,
 				45531A1527DF60E000F9897D /* RunView.swift in Sources */,
 				45A8BB7427FF6ABE00644FA1 /* TimerManager.swift in Sources */,
+				457C103F28F9F37700E8DD77 /* SoundManager.swift in Sources */,
 				4584C88928F8851000AB5A4C /* RunViewModel.swift in Sources */,
 				45C4D5BC2805F9E8008AC09B /* SettingsManager.swift in Sources */,
 				457CBB9728056D7300E5F637 /* DetailsView.swift in Sources */,

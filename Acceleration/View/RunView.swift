@@ -15,6 +15,7 @@ struct RunView: View {
     @StateObject var locationController = LocationManager()
     @StateObject var timer = TimerManager()
     @StateObject var optionalTimer = TimerManager()
+    @StateObject var sound = SoundManager()
     @ObservedObject var settings: SettingsManager
 
     
@@ -143,6 +144,7 @@ struct RunView: View {
                 timer.start()
             default:
                 timer.pause()
+
             }
         })
         .alert(isPresented: $showAlert,

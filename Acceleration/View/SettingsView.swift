@@ -57,7 +57,7 @@ struct SettingsView: View {
                 }
                 
                 Section(header: Text("Sound")) {
-                    Toggle("Play sound at run finish", isOn: $settings.soundIsOn)
+                    Toggle("Play sound at run finish", isOn: $settings.soundActive)
                 }
                 .navigationTitle("Settings")
             }
