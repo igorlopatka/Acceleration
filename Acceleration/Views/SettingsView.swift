@@ -16,6 +16,16 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             Form {
+                Section(header: Text("Units (per hour)")) {
+                    Picker("Units: ", selection: $settings.unit) {
+                        Text("Kilometers").tag(unitSelected.kilometers)
+                        Text("Miles").tag(unitSelected.miles)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .onChange(of: settings.unit) { newValue in
+                        settings.updateUnits(unit: settings.unit)
+                    }
+                }
                 Section(header: Text("First run")) {
                     Picker("Start at:", selection: $settings.startRange) {
                         ForEach(settings.values, id: \.self) {
@@ -43,21 +53,6 @@ struct SettingsView: View {
                             }
                         }
                     }
-                }
-                
-                Section(header: Text("Units (per hour)")) {
-                    Picker("Units: ", selection: $settings.unit) {
-                        Text("Kilometers").tag(unitSelected.kilometers)
-                        Text("Miles").tag(unitSelected.miles)
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .onChange(of: settings.unit) { newValue in
-                        settings.updateUnits(unit: settings.unit)
-                    }
-                }
-                
-                Section(header: Text("Sound")) {
-                    Toggle("Play sound at run finish", isOn: $settings.soundActive)
                 }
                 .navigationTitle("Settings")
             }

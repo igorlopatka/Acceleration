@@ -15,10 +15,8 @@ struct RunView: View {
     @StateObject var locationController = LocationManager()
     @StateObject var timer = TimerManager()
     @StateObject var optionalTimer = TimerManager()
-    @StateObject var sound = SoundManager()
     @ObservedObject var settings: SettingsManager
 
-    
     @State private var showAlert = false
     
     var speedInUnits: Double {
