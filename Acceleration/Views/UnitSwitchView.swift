@@ -11,9 +11,7 @@ struct UnitSwitchView: View {
     
     @State private var unit = Unit.kph
     
-    enum Unit {
-        case kph, mph
-    }
+    
     
     var body: some View {
         HStack {

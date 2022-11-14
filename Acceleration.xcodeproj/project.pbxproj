@@ -12,6 +12,7 @@
 		45531A1527DF60E000F9897D /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1427DF60E000F9897D /* RunView.swift */; };
 		457CBB9728056D7300E5F637 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457CBB9628056D7300E5F637 /* DetailsView.swift */; };
 		4583A85C27EB46C300ED0956 /* VCR OSD Mono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 456D39A727DD33810033186A /* VCR OSD Mono.ttf */; };
+		4597335C2922C1FA00B938C7 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4597335B2922C1FA00B938C7 /* Unit.swift */; };
 		459F49BC27FC7CE100ED92AC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F49BB27FC7CE100ED92AC /* DataManager.swift */; };
 		459F49BE27FC7EB600ED92AC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F49BD27FC7EB600ED92AC /* LocationManager.swift */; };
 		45A8BB7427FF6ABE00644FA1 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A8BB7327FF6ABE00644FA1 /* TimerManager.swift */; };
@@ -49,6 +50,7 @@
 		456D39A727DD33810033186A /* VCR OSD Mono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VCR OSD Mono.ttf"; sourceTree = "<group>"; };
 		457CBB9628056D7300E5F637 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		4583A85D27EB476F00ED0956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4597335B2922C1FA00B938C7 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		459F49BB27FC7CE100ED92AC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		459F49BD27FC7EB600ED92AC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		45A8BB7327FF6ABE00644FA1 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4597335D2922C21F00B938C7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4597335B2922C1FA00B938C7 /* Unit.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		45B805C927C2AAB700E9D57B = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +126,7 @@
 				45C4D5BF2806073D008AC09B /* Views */,
 				45C2B6A328F9F8D800633B4A /* Managers */,
 				45C4D5C028060750008AC09B /* Models */,
+				4597335D2922C21F00B938C7 /* Helpers */,
 				45B805E027C2AAB800E9D57B /* Acceleration.xcdatamodeld */,
 				4583A85D27EB476F00ED0956 /* Info.plist */,
 				45B805D927C2AAB800E9D57B /* Assets.xcassets */,
@@ -298,6 +309,7 @@
 				45B805D827C2AAB700E9D57B /* ContentView.swift in Sources */,
 				459F49BE27FC7EB600ED92AC /* LocationManager.swift in Sources */,
 				45C1864927FDCF9900DF5C15 /* TextAlert.swift in Sources */,
+				4597335C2922C1FA00B938C7 /* Unit.swift in Sources */,
 				45531A1527DF60E000F9897D /* RunView.swift in Sources */,
 				45A8BB7427FF6ABE00644FA1 /* TimerManager.swift in Sources */,
 				45C4D5BC2805F9E8008AC09B /* SettingsManager.swift in Sources */,
