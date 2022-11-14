@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		454DD30B2922BE8E0068FCCA /* UnitSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454DD30A2922BE8E0068FCCA /* UnitSwitchView.swift */; };
 		45531A1327DF5F1300F9897D /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1227DF5F1300F9897D /* HistoryView.swift */; };
 		45531A1527DF60E000F9897D /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1427DF60E000F9897D /* RunView.swift */; };
 		457CBB9728056D7300E5F637 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457CBB9628056D7300E5F637 /* DetailsView.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		454DD30A2922BE8E0068FCCA /* UnitSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSwitchView.swift; sourceTree = "<group>"; };
 		45531A1227DF5F1300F9897D /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		45531A1427DF60E000F9897D /* RunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunView.swift; sourceTree = "<group>"; };
 		456D39A727DD33810033186A /* VCR OSD Mono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VCR OSD Mono.ttf"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				457CBB9628056D7300E5F637 /* DetailsView.swift */,
 				45C4D5BD2805FA98008AC09B /* SettingsView.swift */,
 				45C1864827FDCF9900DF5C15 /* TextAlert.swift */,
+				454DD30A2922BE8E0068FCCA /* UnitSwitchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				457CBB9728056D7300E5F637 /* DetailsView.swift in Sources */,
 				45531A1327DF5F1300F9897D /* HistoryView.swift in Sources */,
 				459F49BC27FC7CE100ED92AC /* DataManager.swift in Sources */,
+				454DD30B2922BE8E0068FCCA /* UnitSwitchView.swift in Sources */,
 				45C4D5BE2805FA98008AC09B /* SettingsView.swift in Sources */,
 				45B805D627C2AAB700E9D57B /* AccelerationApp.swift in Sources */,
 				45B805E227C2AAB800E9D57B /* Acceleration.xcdatamodeld in Sources */,
