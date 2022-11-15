@@ -125,7 +125,6 @@
 				45B805D727C2AAB700E9D57B /* ContentView.swift */,
 				45C4D5BF2806073D008AC09B /* Views */,
 				45C2B6A328F9F8D800633B4A /* Managers */,
-				45C4D5C028060750008AC09B /* Models */,
 				4597335D2922C21F00B938C7 /* Helpers */,
 				45B805E027C2AAB800E9D57B /* Acceleration.xcdatamodeld */,
 				4583A85D27EB476F00ED0956 /* Info.plist */,
@@ -166,13 +165,6 @@
 				454DD30A2922BE8E0068FCCA /* UnitSwitchView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		45C4D5C028060750008AC09B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

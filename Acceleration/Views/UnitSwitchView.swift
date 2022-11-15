@@ -7,11 +7,27 @@
 
 import SwiftUI
 
+struct UnitSymbolView: View {
+    
+    let symbolName: String
+    
+    var body: some View {
+        Image(systemName: symbolName)
+            .resizable()
+            .frame(width: 50, height: 50)
+            .foregroundStyle(.foreground)
+    }
+}
+
+struct UnitSymbolView_Previews: PreviewProvider {
+    static var previews: some View {
+        UnitSymbolView(symbolName: "kph.circle")
+    }
+}
+
 struct UnitSwitchView: View {
     
-    @State private var unit = Unit.kph
-    
-    
+    @Binding var unit: Unit
     
     var body: some View {
         HStack {
@@ -20,9 +36,9 @@ struct UnitSwitchView: View {
             } label: {
                 switch unit {
                 case .kph:
-                    Image(systemName: "kph.circle.fill")
+                    UnitSymbolView(symbolName: "kph.circle.fill")
                 case .mph:
-                    Image(systemName: "kph.circle")
+                    UnitSymbolView(symbolName: "kph.circle")
                 }
             }
             Button {
@@ -30,9 +46,10 @@ struct UnitSwitchView: View {
             } label: {
                 switch unit {
                 case .kph:
-                    Image(systemName: "mph.circle")
+                    UnitSymbolView(symbolName: "mph.circle")
                 case .mph:
-                    Image(systemName: "mph.circle.fill")
+                    UnitSymbolView(symbolName: "mph.circle.fill")
+
                 }
             }
         }
@@ -40,8 +57,8 @@ struct UnitSwitchView: View {
     }
 }
 
-struct UnitSwitchView_Previews: PreviewProvider {
-    static var previews: some View {
-        UnitSwitchView()
-    }
-}
+//struct UnitSwitchView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UnitSwitchView()
+//    }
+//}

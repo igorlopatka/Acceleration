@@ -19,6 +19,9 @@ struct RunView: View {
 
     @State private var showAlert = false
     
+    // roboczo
+    @State private var unit = Unit.kph
+    
     var speedInUnits: Double {
         let speedMS = locationController.lastSeenLocation?.speed ?? 0
         let speedInUnits = Double(speedMS) * settings.unitsMultiplier
@@ -49,6 +52,7 @@ struct RunView: View {
                         .padding()
                 }
                 Spacer()
+                UnitSwitchView(unit: $unit)
                 VStack {
                     HStack {
                         
@@ -57,16 +61,28 @@ struct RunView: View {
                         Text("GPS SIGNAL")
                         if (gpsAccuracy < 0) {
                             Image(systemName: "network")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50, height: 50)
                                 .foregroundColor(.black)
                         } else if (gpsAccuracy > 163) {
                             Image(systemName: "network")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50, height: 50)
                                 .foregroundColor(.red)
                         } else if (gpsAccuracy > 48) {
                             Image(systemName: "network")
+                                .resizable()
                                 .foregroundColor(.yellow)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50, height: 50)
                         } else {
                             Image(systemName: "network")
+                                .resizable()
                                 .foregroundColor(.green)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50, height: 50)
                         }
                     }
                 }
