@@ -7,24 +7,6 @@
 
 import SwiftUI
 
-struct UnitSymbolView: View {
-    
-    let symbolName: String
-    
-    var body: some View {
-        Image(systemName: symbolName)
-            .resizable()
-            .frame(width: 50, height: 50)
-            .foregroundStyle(.foreground)
-    }
-}
-
-struct UnitSymbolView_Previews: PreviewProvider {
-    static var previews: some View {
-        UnitSymbolView(symbolName: "kph.circle")
-    }
-}
-
 struct UnitSwitchView: View {
     
     @Binding var unit: Unit

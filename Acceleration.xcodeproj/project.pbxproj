@@ -24,6 +24,7 @@
 		45C1864927FDCF9900DF5C15 /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1864827FDCF9900DF5C15 /* TextAlert.swift */; };
 		45C4D5BC2805F9E8008AC09B /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4D5BB2805F9E8008AC09B /* SettingsManager.swift */; };
 		45C4D5BE2805FA98008AC09B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4D5BD2805FA98008AC09B /* SettingsView.swift */; };
+		45DF85FC292F8EBB0050799F /* UnitSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF85FB292F8EBB0050799F /* UnitSymbolView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		45C1864827FDCF9900DF5C15 /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
 		45C4D5BB2805F9E8008AC09B /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		45C4D5BD2805FA98008AC09B /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		45DF85FB292F8EBB0050799F /* UnitSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSymbolView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				45C4D5BD2805FA98008AC09B /* SettingsView.swift */,
 				45C1864827FDCF9900DF5C15 /* TextAlert.swift */,
 				454DD30A2922BE8E0068FCCA /* UnitSwitchView.swift */,
+				45DF85FB292F8EBB0050799F /* UnitSymbolView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			files = (
 				45B805D827C2AAB700E9D57B /* ContentView.swift in Sources */,
 				459F49BE27FC7EB600ED92AC /* LocationManager.swift in Sources */,
+				45DF85FC292F8EBB0050799F /* UnitSymbolView.swift in Sources */,
 				45C1864927FDCF9900DF5C15 /* TextAlert.swift in Sources */,
 				4597335C2922C1FA00B938C7 /* Unit.swift in Sources */,
 				45531A1527DF60E000F9897D /* RunView.swift in Sources */,
