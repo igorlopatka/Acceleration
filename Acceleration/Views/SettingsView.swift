@@ -11,21 +11,9 @@ struct SettingsView: View {
     
     @ObservedObject var settings: SettingsManager
     
-    var unitSelected = SettingsManager.Units.self
-    
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Units (per hour)")) {
-                    Picker("Units: ", selection: $settings.unit) {
-                        Text("Kilometers").tag(unitSelected.kilometers)
-                        Text("Miles").tag(unitSelected.miles)
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .onChange(of: settings.unit) { newValue in
-                        settings.updateUnits(unit: settings.unit)
-                    }
-                }
                 Section(header: Text("First run")) {
                     Picker("Start at:", selection: $settings.startRange) {
                         ForEach(settings.values, id: \.self) {

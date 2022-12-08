@@ -10,7 +10,7 @@ import SwiftUI
 struct UnitSwitchView: View {
     
     @Binding var unit: Unit
-    
+
     var body: some View {
         HStack {
             Button {
@@ -38,9 +38,3 @@ struct UnitSwitchView: View {
         .padding()
     }
 }
-
-//struct UnitSwitchView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        UnitSwitchView()
-//    }
-//}

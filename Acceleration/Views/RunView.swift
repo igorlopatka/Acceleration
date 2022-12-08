@@ -19,24 +19,9 @@ struct RunView: View {
 
     @State private var showAlert = false
     
-    // roboczo
     @State private var unit = Unit.kph
-    
-    var speedInUnits: Double {
-        let speedMS = locationController.lastSeenLocation?.speed ?? 0
-        let speedInUnits = Double(speedMS) * settings.unitsMultiplier
-        
-        if speedInUnits <= 2 {
-            return 0
-        } else {
-            return speedInUnits
-        }
-    }
-    
-    var gpsAccuracy: Double {
-        let accuracy =  locationController.lastSeenLocation?.horizontalAccuracy
-        return Double(accuracy ?? 0)
-    }
+    @State private var unitsMultiplier = 3.6
+    @State private var unitsTitle = "km/h"
     
     var body: some View {
         VStack {
@@ -53,25 +38,26 @@ struct RunView: View {
                 }
                 Spacer()
                 UnitSwitchView(unit: $unit)
-                VStack {
+                    .onChange(of: unit) { _ in
+                        updateUnits(unit: unit)
+                    }
+                Spacer()
                     HStack {
                         
                         // Make it better in the future!
-                        
-                        Text("GPS SIGNAL")
-                        if (gpsAccuracy < 0) {
+                        if (locationController.gpsAccuracy < 0) {
                             Image(systemName: "network")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 50, height: 50)
                                 .foregroundColor(.black)
-                        } else if (gpsAccuracy > 163) {
+                        } else if (locationController.gpsAccuracy > 163) {
                             Image(systemName: "network")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 50, height: 50)
                                 .foregroundColor(.red)
-                        } else if (gpsAccuracy > 48) {
+                        } else if (locationController.gpsAccuracy > 48) {
                             Image(systemName: "network")
                                 .resizable()
                                 .foregroundColor(.yellow)
@@ -85,7 +71,7 @@ struct RunView: View {
                                 .frame(width: 50, height: 50)
                         }
                     }
-                }
+                
                 .padding()
             }
             
@@ -93,9 +79,9 @@ struct RunView: View {
             
             VStack {
                 HStack {
-                    Text(String(format: "%.0f", speedInUnits))
+                    Text(String(format: "%.0f", locationController.speed * unitsMultiplier))
                         .font(.custom("VCR OSD Mono", size: 100))
-                    Text("\(settings.unitsTitle)")
+                    Text("\(unitsTitle)")
                         .font(.custom("VCR OSD Mono", size: 30))
                         .padding(.top, 70)
                 }
@@ -149,7 +135,7 @@ struct RunView: View {
                 locationController.requestPermission()
             }
         }
-        .onChange(of: speedInUnits, perform: { newValue in
+        .onChange(of: locationController.speed  , perform: { newValue in
             let start = Double(settings.startRange)
             let finish = Double(settings.finishRange)
             
@@ -158,7 +144,6 @@ struct RunView: View {
                 timer.start()
             default:
                 timer.pause()
-
             }
         })
         .alert(isPresented: $showAlert,
@@ -171,6 +156,17 @@ struct RunView: View {
         })
     }
     
+    private func updateUnits(unit: Unit) {
+        switch unit {
+        case .kph:
+            unitsMultiplier = 3.6
+            unitsTitle = "km/h"
+        case .mph:
+            unitsMultiplier = 2.2369
+            unitsTitle = "mi/h"
+        }
+    }
+    
     private func addRun(title: String) {
         withAnimation {
             let newRun = Run(context: context)
@@ -180,7 +176,7 @@ struct RunView: View {
             newRun.start = Int16(settings.startRange)
             newRun.finish = Int16(settings.finishRange)
             newRun.time = timer.counter
-            newRun.unit = settings.unitsTitle
+            newRun.unit = unitsTitle
             do {
                 try context.save()
             } catch {
