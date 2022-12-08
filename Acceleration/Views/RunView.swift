@@ -42,37 +42,13 @@ struct RunView: View {
                         updateUnits(unit: unit)
                     }
                 Spacer()
-                    HStack {
-                        
-                        // Make it better in the future!
-                        if (locationController.gpsAccuracy < 0) {
-                            Image(systemName: "network")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 50, height: 50)
-                                .foregroundColor(.black)
-                        } else if (locationController.gpsAccuracy > 163) {
-                            Image(systemName: "network")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 50, height: 50)
-                                .foregroundColor(.red)
-                        } else if (locationController.gpsAccuracy > 48) {
-                            Image(systemName: "network")
-                                .resizable()
-                                .foregroundColor(.yellow)
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 50, height: 50)
-                        } else {
-                            Image(systemName: "network")
-                                .resizable()
-                                .foregroundColor(.green)
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 50, height: 50)
-                        }
-                    }
                 
-                .padding()
+                Image(systemName: "network")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(updateSignalColor(signal: locationController.gpsSignalQuality))
+                    .padding()
             }
             
             Spacer()
@@ -156,14 +132,27 @@ struct RunView: View {
         })
     }
     
+    private func updateSignalColor(signal: Signal) -> Color {
+        switch signal {
+        case .good:
+            return .green
+        case .mediocre:
+            return .yellow
+        case .weak:
+            return .red
+        case .none:
+            return .black
+        }
+    }
+    
     private func updateUnits(unit: Unit) {
         switch unit {
         case .kph:
             unitsMultiplier = 3.6
-            unitsTitle = "km/h"
+            unitsTitle = "kmh"
         case .mph:
             unitsMultiplier = 2.2369
-            unitsTitle = "mi/h"
+            unitsTitle = "mph"
         }
     }
     

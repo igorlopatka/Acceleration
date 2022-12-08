@@ -39,6 +39,18 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    var gpsSignalQuality: Signal {
+        if (gpsAccuracy < 0) {
+            return .none
+        } else if (gpsAccuracy > 163) {
+            return .weak
+        } else if (gpsAccuracy > 48) {
+            return .mediocre
+        } else {
+            return .good
+        }
+    }
+    
     var gpsAccuracy: Double {
         let accuracy =  lastSeenLocation?.horizontalAccuracy
         return Double(accuracy ?? 0)
