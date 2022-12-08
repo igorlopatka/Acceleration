@@ -28,6 +28,22 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
     
+    var speed: Double {
+        let speedMS = lastSeenLocation?.speed ?? 0
+        let speedDouble = Double(speedMS)
+        
+        if speedDouble <= 2 {
+            return 0
+        } else {
+            return speedDouble
+        }
+    }
+    
+    var gpsAccuracy: Double {
+        let accuracy =  lastSeenLocation?.horizontalAccuracy
+        return Double(accuracy ?? 0)
+    }
+    
     func requestPermission() {
         locationManager.requestWhenInUseAuthorization()
     }
