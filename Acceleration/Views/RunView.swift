@@ -111,7 +111,7 @@ struct RunView: View {
                 locationController.requestPermission()
             }
         }
-        .onChange(of: locationController.speed  , perform: { newValue in
+        .onChange(of: locationController.speed, perform: { newValue in
             let start = Double(settings.startRange)
             let finish = Double(settings.finishRange)
             
