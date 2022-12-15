@@ -14,7 +14,7 @@ struct UnitSymbolView: View {
     var body: some View {
         Image(systemName: symbolName)
             .resizable()
-            .frame(width: 50, height: 50)
+            .frame(width: 40, height: 40)
             .foregroundStyle(.foreground)
     }
 }
