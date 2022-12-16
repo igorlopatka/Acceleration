@@ -107,12 +107,12 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		45A65904294D11DC0086499B /* ViewModel */ = {
+		45A65904294D11DC0086499B /* View Model */ = {
 			isa = PBXGroup;
 			children = (
 				45A65905294D11F80086499B /* AccelerationViewModel.swift */,
 			);
-			path = ViewModel;
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		45B805C927C2AAB700E9D57B = {
@@ -137,8 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				45B805D527C2AAB700E9D57B /* AccelerationApp.swift */,
+				45A65904294D11DC0086499B /* View Model */,
 				45C4D5BF2806073D008AC09B /* View */,
-				45A65904294D11DC0086499B /* ViewModel */,
 				45C2B6A328F9F8D800633B4A /* Manager */,
 				4597335D2922C21F00B938C7 /* Helper */,
 				45B805E027C2AAB800E9D57B /* Acceleration.xcdatamodeld */,
