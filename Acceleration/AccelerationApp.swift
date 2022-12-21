@@ -11,13 +11,11 @@ import SwiftUI
 struct AccelerationApp: App {
     
     @StateObject private var runDataController = DataManager()
-    @StateObject private var accelerationViewModel = AccelerationViewModel()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, runDataController.container.viewContext)
-                .environmentObject(accelerationViewModel)
         }
     }
 }
