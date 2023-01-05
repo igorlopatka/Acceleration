@@ -126,6 +126,19 @@ struct RunView: View {
             default:
                 timer.pause()
             }
+            
+            if settings.optionalRunIsActive {
+                let optStart = Double(settings.optionalStartRange)
+                let optFinish = Double(settings.optionalFinishRange)
+                
+                switch newValue {
+                case optStart...optFinish:
+                    optionalTimer.start()
+                default:
+                    optionalTimer.pause()
+                }
+                
+            }
         })
         .alert(isPresented: $showAlert,
                TextAlert(title: "SAVE RUN",
