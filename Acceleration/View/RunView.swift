@@ -23,6 +23,11 @@ struct RunView: View {
     @State private var unitsMultiplier = 3.6
     @State private var unitsTitle = "km/h"
     
+    private var speedInUnits: Double {
+        let inUnits = locationController.speed * unitsMultiplier
+        return inUnits
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -55,7 +60,7 @@ struct RunView: View {
             
             VStack {
                 HStack {
-                    Text(String(format: "%.0f", locationController.speed * unitsMultiplier))
+                    Text(String(format: "%.0f", speedInUnits))
                         .font(.custom("VCR OSD Mono", size: 100))
                     Text("\(unitsTitle)")
                         .font(.custom("VCR OSD Mono", size: 30))
@@ -111,7 +116,7 @@ struct RunView: View {
                 locationController.requestPermission()
             }
         }
-        .onChange(of: locationController.speed, perform: { newValue in
+        .onChange(of: speedInUnits, perform: { newValue in
             let start = Double(settings.startRange)
             let finish = Double(settings.finishRange)
             
