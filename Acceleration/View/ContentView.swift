@@ -15,11 +15,11 @@ struct ContentView: View {
         SortDescriptor(\.title)
     ]) var runs: FetchedResults<Run>
     
-    @StateObject var settings = SettingsManager()
+    @StateObject var range = RangeManager()
     
     var body: some View {
         TabView {
-            RunView(settings: settings)
+            RunView(range: range)
                 .tabItem {
                     Image(systemName: "car")
                     Text("Run")
@@ -31,7 +31,7 @@ struct ContentView: View {
                     Text("History")
                 }
             
-            SettingsView(settings: settings)
+            SettingsView(settings: range)
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("Settings")

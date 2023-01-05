@@ -15,7 +15,7 @@ struct RunView: View {
     @StateObject var locationController = LocationManager()
     @StateObject var timer = TimerManager()
     @StateObject var optionalTimer = TimerManager()
-    @ObservedObject var settings: SettingsManager
+    @ObservedObject var range: RangeManager
 
     @State private var showAlert = false
     
@@ -80,15 +80,15 @@ struct RunView: View {
             
             VStack {
                 HStack {
-                    Text("\(settings.startRange) - \(settings.finishRange)")
+                    Text("\(range.start) - \(range.finish)")
                         .bold()
                     Text((String(format: "%.1f", timer.counter)) + "s")
                         .bold()
                 }
                 
-                if settings.optionalRunIsActive {
+                if range.optRunActive {
                     HStack {
-                        Text("\(settings.optionalStartRange) - \(settings.optionalFinishRange)")
+                        Text("\(range.optStart) - \(range.optFinish)")
                             .bold()
                         Text((String(format: "%.1f", optionalTimer.counter)) + "s")
                             .bold()
@@ -117,8 +117,8 @@ struct RunView: View {
             }
         }
         .onChange(of: speedInUnits, perform: { newValue in
-            let start = Double(settings.startRange)
-            let finish = Double(settings.finishRange)
+            let start = Double(range.start)
+            let finish = Double(range.finish)
             
             switch newValue {
             case start...finish:
@@ -127,9 +127,9 @@ struct RunView: View {
                 timer.pause()
             }
             
-            if settings.optionalRunIsActive {
-                let optStart = Double(settings.optionalStartRange)
-                let optFinish = Double(settings.optionalFinishRange)
+            if range.optRunActive {
+                let optStart = Double(range.optStart)
+                let optFinish = Double(range.optFinish)
                 
                 switch newValue {
                 case optStart...optFinish:
@@ -180,8 +180,8 @@ struct RunView: View {
             newRun.timestamp = Date()
             newRun.id = UUID()
             newRun.title = title
-            newRun.start = Int16(settings.startRange)
-            newRun.finish = Int16(settings.finishRange)
+            newRun.start = Int16(range.start)
+            newRun.finish = Int16(range.finish)
             newRun.time = timer.counter
             newRun.unit = unitsTitle
             do {
@@ -196,6 +196,6 @@ struct RunView: View {
 
 struct RunView_Previews: PreviewProvider {
     static var previews: some View {
-        RunView(settings: SettingsManager())
+        RunView(range: RangeManager())
     }
 }

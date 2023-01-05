@@ -9,18 +9,18 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @ObservedObject var settings: SettingsManager
+    @ObservedObject var settings: RangeManager
     
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("First run")) {
-                    Picker("Start at:", selection: $settings.startRange) {
+                    Picker("Start at:", selection: $settings.start) {
                         ForEach(settings.values, id: \.self) {
                             Text(String($0))
                         }
                     }
-                    Picker("Finish at:", selection: $settings.finishRange) {
+                    Picker("Finish at:", selection: $settings.finish) {
                         ForEach(settings.values, id: \.self) {
                             Text(String($0))
                         }
@@ -28,14 +28,14 @@ struct SettingsView: View {
                 }
                 
                 Section(header: Text("Optional run")) {
-                    Toggle("Optional run active", isOn: $settings.optionalRunIsActive.animation())
-                    if settings.optionalRunIsActive {
-                        Picker("Start at:", selection: $settings.optionalStartRange) {
+                    Toggle("Optional run active", isOn: $settings.optRunActive.animation())
+                    if settings.optRunActive {
+                        Picker("Start at:", selection: $settings.optStart) {
                             ForEach(settings.values, id: \.self) {
                                 Text(String($0))
                             }
                         }
-                        Picker("Finish at:", selection: $settings.optionalFinishRange) {
+                        Picker("Finish at:", selection: $settings.optFinish) {
                             ForEach(settings.values, id: \.self) {
                                 Text(String($0))
                             }
@@ -51,6 +51,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(settings: SettingsManager())
+        SettingsView(settings: RangeManager())
     }
 }
