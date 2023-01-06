@@ -67,8 +67,14 @@ struct RunView: View {
                         .padding(.top, 70)
                 }
                 HStack {
-                    Text(String(format: "%.1f", timer.counter))
-                        .font(.custom("VCR OSD Mono", size: 100))
+                    if optionalTimer.mode == .running {
+                        Text(String(format: "%.1f", optionalTimer.counter))
+                            .font(.custom("VCR OSD Mono", size: 100))
+                    } else {
+                        Text(String(format: "%.1f", timer.counter))
+                            .font(.custom("VCR OSD Mono", size: 100))
+                    }
+                    
                     Text("sec")
                         .font(.custom("VCR OSD Mono", size: 30))
                         .padding(.top, 70)
