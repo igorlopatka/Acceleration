@@ -41,9 +41,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     var gpsSignalQuality: Signal {
         if (gpsAccuracy < 0) {
             return .none
-        } else if (gpsAccuracy > 163) {
+        } else if (gpsAccuracy > 150) {
             return .weak
-        } else if (gpsAccuracy > 48) {
+        } else if (gpsAccuracy > 50) {
             return .mediocre
         } else {
             return .good
