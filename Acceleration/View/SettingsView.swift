@@ -9,34 +9,34 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @ObservedObject var settings: RangeManager
+    @ObservedObject var range: RangeManager
     
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("First run")) {
-                    Picker("Start at:", selection: $settings.start) {
-                        ForEach(settings.values, id: \.self) {
+                    Picker("Start at:", selection: $range.start) {
+                        ForEach(range.values, id: \.self) {
                             Text(String($0))
                         }
                     }
-                    Picker("Finish at:", selection: $settings.finish) {
-                        ForEach(settings.values, id: \.self) {
+                    Picker("Finish at:", selection: $range.finish) {
+                        ForEach(range.values, id: \.self) {
                             Text(String($0))
                         }
                     }
                 }
                 
                 Section(header: Text("Optional run")) {
-                    Toggle("Optional run active", isOn: $settings.optRunActive.animation())
-                    if settings.optRunActive {
-                        Picker("Start at:", selection: $settings.optStart) {
-                            ForEach(settings.values, id: \.self) {
+                    Toggle("Optional run active", isOn: $range.optRunActive.animation())
+                    if range.optRunActive {
+                        Picker("Start at:", selection: $range.optStart) {
+                            ForEach(range.values, id: \.self) {
                                 Text(String($0))
                             }
                         }
-                        Picker("Finish at:", selection: $settings.optFinish) {
-                            ForEach(settings.values, id: \.self) {
+                        Picker("Finish at:", selection: $range.optFinish) {
+                            ForEach(range.values, id: \.self) {
                                 Text(String($0))
                             }
                         }
@@ -51,6 +51,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(settings: RangeManager())
+        SettingsView(range: RangeManager())
     }
 }
