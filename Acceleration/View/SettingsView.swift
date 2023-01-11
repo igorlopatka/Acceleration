@@ -10,40 +10,23 @@ import SwiftUI
 struct SettingsView: View {
     
     @ObservedObject var range: RangeManager
+    @State private var optRunActive = false
     
     var body: some View {
-        NavigationView {
-            Form {
-                Section(header: Text("First run")) {
-                    Picker("Start at:", selection: $range.start) {
-                        ForEach(range.values, id: \.self) {
-                            Text(String($0))
-                        }
-                    }
-                    Picker("Finish at:", selection: $range.finish) {
-                        ForEach(range.values, id: \.self) {
-                            Text(String($0))
-                        }
-                    }
+        VStack {
+            HStack {
+                RunRowView(range: RunRange())
+                Button {
+                    optRunActive = true
+                } label: {
+                    Image(systemName: "plus.circle")
+                        .tint(.pink)
                 }
-                
-                Section(header: Text("Optional run")) {
-                    Toggle("Optional run active", isOn: $range.optRunActive.animation())
-                    if range.optRunActive {
-                        Picker("Start at:", selection: $range.optStart) {
-                            ForEach(range.values, id: \.self) {
-                                Text(String($0))
-                            }
-                        }
-                        Picker("Finish at:", selection: $range.optFinish) {
-                            ForEach(range.values, id: \.self) {
-                                Text(String($0))
-                            }
-                        }
-                    }
-                }
-                .navigationTitle("Settings")
             }
+            if optRunActive {
+                RunRowView(range: RunRange())
+            }
+
         }
     }
 }

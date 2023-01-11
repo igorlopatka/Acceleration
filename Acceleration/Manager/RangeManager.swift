@@ -8,6 +8,7 @@
 import Foundation
 
 class RangeManager: ObservableObject {
+    
     @Published var start = 0
     @Published var finish = 100
     @Published var optRunActive = false
