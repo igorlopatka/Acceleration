@@ -15,7 +15,7 @@ struct RunView: View {
     @StateObject var locationController = LocationManager()
     @StateObject var timer = TimerManager()
     @StateObject var optionalTimer = TimerManager()
-    @ObservedObject var range: RangeManager
+    @StateObject var range = RangeManager()
 
     @State private var showAlert = false
     
@@ -48,7 +48,7 @@ struct RunView: View {
                     }
                 Spacer()
                 
-                Image(systemName: "network")
+                Image("signal")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50, height: 50)
@@ -84,23 +84,7 @@ struct RunView: View {
             
             Spacer()
             
-            VStack {
-                HStack {
-                    Text("\(range.start) - \(range.finish)")
-                        .bold()
-                    Text((String(format: "%.1f", timer.counter)) + "s")
-                        .bold()
-                }
-                
-                if range.optRunActive {
-                    HStack {
-                        Text("\(range.optStart) - \(range.optFinish)")
-                            .bold()
-                        Text((String(format: "%.1f", optionalTimer.counter)) + "s")
-                            .bold()
-                    }
-                }
-            }
+            RunRowListView(range: range, timer: timer, optTimer: optionalTimer)
             Spacer()
             Button {
                 showAlert = true
