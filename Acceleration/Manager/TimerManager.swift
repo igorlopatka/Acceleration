@@ -13,8 +13,7 @@ class TimerManager: ObservableObject {
     
     @Published var timer = Timer()
     @Published var counter = 0.00
-    @Published var mode: mode = .stopped
-    
+    @Published var mode: Mode = .stopped
     
     func start() {
         if mode != .running {
@@ -32,7 +31,6 @@ class TimerManager: ObservableObject {
     }
     
     func stop() {
-        
         if mode != .stopped {
             timer.invalidate()
             counter = 0
@@ -44,11 +42,5 @@ class TimerManager: ObservableObject {
         timer.invalidate()
         mode = .paused
     }
-    
 }
 
-enum mode {
-    case running
-    case stopped
-    case paused
-}
