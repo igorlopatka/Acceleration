@@ -20,27 +20,24 @@ struct RunRowView: View {
                 ForEach(values, id: \.self) {
                     if $0 < finish {
                         Text(String($0))
-                            .lineLimit(1)
                     }
                 }
             }
             .tint(.pink)
-            Text( " - ")
+            .padding(.leading, 40)
+            
+            Image(systemName: "arrow.right")
+            
             Picker("Finish at:", selection: $finish) {
                 ForEach(values, id: \.self) {
                     if $0 > start {
                         Text(String($0))
-                            .lineLimit(1)
                     }
                 }
             }
             .tint(.pink)
+            .padding(.trailing, 40)
         }
     }
 }
 
-//struct RunRowView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RunRowView(start: , finish: <#T##Binding<Int>#>)
-//    }
-//}
