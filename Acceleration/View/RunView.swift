@@ -21,7 +21,7 @@ struct RunView: View {
     
     @State private var unit = Unit.kph
     @State private var unitsMultiplier = 3.6
-    @State private var unitsTitle = "km/h"
+    @State private var unitsTitle = "kmh"
     
     private var speedInUnits: Double {
         let inUnits = locationController.speed * unitsMultiplier
@@ -33,6 +33,7 @@ struct RunView: View {
             HStack {
                 Button(action: {
                     timer.reset()
+                    optionalTimer.reset()
                 }) {
                     Image(systemName: "arrow.counterclockwise")
                         .resizable()
@@ -83,8 +84,7 @@ struct RunView: View {
             .padding()
             
             Spacer()
-            
-            RunRowListView(range: range, timer: timer, optTimer: optionalTimer)
+                RunRowListView(range: range, timer: timer, optTimer: optionalTimer)
             Spacer()
             Button {
                 showAlert = true
