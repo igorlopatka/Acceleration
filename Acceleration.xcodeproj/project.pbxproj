@@ -28,6 +28,8 @@
 		45C1864927FDCF9900DF5C15 /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1864827FDCF9900DF5C15 /* TextAlert.swift */; };
 		45C4D5BC2805F9E8008AC09B /* RangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4D5BB2805F9E8008AC09B /* RangeManager.swift */; };
 		45C4D5BE2805FA98008AC09B /* RunRowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4D5BD2805FA98008AC09B /* RunRowListView.swift */; };
+		45D9A10029731B54000CD7C8 /* RunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D9A0FF29731B54000CD7C8 /* RunViewModel.swift */; };
+		45D9A10329731C93000CD7C8 /* UnitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D9A10229731C93000CD7C8 /* UnitManager.swift */; };
 		45DF85FC292F8EBB0050799F /* UnitSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF85FB292F8EBB0050799F /* UnitSymbolView.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,8 @@
 		45C1864827FDCF9900DF5C15 /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
 		45C4D5BB2805F9E8008AC09B /* RangeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeManager.swift; sourceTree = "<group>"; };
 		45C4D5BD2805FA98008AC09B /* RunRowListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunRowListView.swift; sourceTree = "<group>"; };
+		45D9A0FF29731B54000CD7C8 /* RunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunViewModel.swift; sourceTree = "<group>"; };
+		45D9A10229731C93000CD7C8 /* UnitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitManager.swift; sourceTree = "<group>"; };
 		45DF85FB292F8EBB0050799F /* UnitSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSymbolView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				45B805D527C2AAB700E9D57B /* AccelerationApp.swift */,
+				45D9A10129731BD6000CD7C8 /* ViewModel */,
 				45C4D5BF2806073D008AC09B /* View */,
 				45C2B6A328F9F8D800633B4A /* Manager */,
 				4597335D2922C21F00B938C7 /* Helper */,
@@ -162,6 +167,7 @@
 				459F49BD27FC7EB600ED92AC /* LocationManager.swift */,
 				45C4D5BB2805F9E8008AC09B /* RangeManager.swift */,
 				45A8BB7327FF6ABE00644FA1 /* TimerManager.swift */,
+				45D9A10229731C93000CD7C8 /* UnitManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -180,6 +186,14 @@
 				45DF85FB292F8EBB0050799F /* UnitSymbolView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		45D9A10129731BD6000CD7C8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				45D9A0FF29731B54000CD7C8 /* RunViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,12 +337,14 @@
 				45A8BB7427FF6ABE00644FA1 /* TimerManager.swift in Sources */,
 				45C4D5BC2805F9E8008AC09B /* RangeManager.swift in Sources */,
 				45A63D06296F291F007DB018 /* RunRange.swift in Sources */,
+				45D9A10029731B54000CD7C8 /* RunViewModel.swift in Sources */,
 				457CBB9728056D7300E5F637 /* DetailsView.swift in Sources */,
 				45531A1327DF5F1300F9897D /* HistoryView.swift in Sources */,
 				459F49BC27FC7CE100ED92AC /* DataManager.swift in Sources */,
 				454DD30B2922BE8E0068FCCA /* UnitSwitchView.swift in Sources */,
 				45A63D02296F20F8007DB018 /* Mode.swift in Sources */,
 				45C4D5BE2805FA98008AC09B /* RunRowListView.swift in Sources */,
+				45D9A10329731C93000CD7C8 /* UnitManager.swift in Sources */,
 				45B805D627C2AAB700E9D57B /* AccelerationApp.swift in Sources */,
 				45A63D08296F2A16007DB018 /* RunRowView.swift in Sources */,
 				45B805E227C2AAB800E9D57B /* Acceleration.xcdatamodeld in Sources */,
