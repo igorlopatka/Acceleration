@@ -34,7 +34,9 @@ class RunViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func requestPermission() {
-        locationManager.requestWhenInUseAuthorization()
+        if authorizationStatus == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {

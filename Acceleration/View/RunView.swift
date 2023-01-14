@@ -29,11 +29,14 @@ struct RunView: View {
                         .foregroundColor(.primary)
                         .padding()
                 }
+                
                 Spacer()
+                
                 UnitSwitchView(vm: vm)
                     .onChange(of: vm.unit.unit) { _ in
                         vm.unit.updateUnits()
                     }
+                
                 Spacer()
                 
                 Image("signal")
@@ -71,8 +74,11 @@ struct RunView: View {
             .padding()
             
             Spacer()
+            
             RunRowListView(range: vm.range, timer: vm.timer, optTimer: vm.optionalTimer)
+            
             Spacer()
+            
             Button {
                 showAlert = true
             } label: {
@@ -89,9 +95,7 @@ struct RunView: View {
             Spacer()
         }
         .onAppear {
-            if vm.authorizationStatus == .notDetermined {
-                vm.requestPermission()
-            }
+            vm.requestPermission()
         }
         .onChange(of: vm.speedInUnits, perform: { newValue in
             let start = Double(vm.range.start)
@@ -114,7 +118,6 @@ struct RunView: View {
                 default:
                     vm.optionalTimer.pause()
                 }
-                
             }
         })
         .alert(isPresented: $showAlert,
