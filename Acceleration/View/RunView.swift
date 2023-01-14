@@ -12,28 +12,15 @@ struct RunView: View {
     @Environment(\.managedObjectContext) var context
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var locationController = LocationManager()
-    @StateObject var timer = TimerManager()
-    @StateObject var optionalTimer = TimerManager()
-    @StateObject var range = RangeManager()
-
+    @StateObject var vm = RunViewModel()
     @State private var showAlert = false
-    
-    @State private var unit = Unit.kph
-    @State private var unitsMultiplier = 3.6
-    @State private var unitsTitle = "kmh"
-    
-    private var speedInUnits: Double {
-        let inUnits = locationController.speed * unitsMultiplier
-        return inUnits
-    }
     
     var body: some View {
         VStack {
             HStack {
                 Button(action: {
-                    timer.reset()
-                    optionalTimer.reset()
+                    vm.timer.reset()
+                    vm.optionalTimer.reset()
                 }) {
                     Image(systemName: "arrow.counterclockwise")
                         .resizable()
@@ -43,9 +30,9 @@ struct RunView: View {
                         .padding()
                 }
                 Spacer()
-                UnitSwitchView(unit: $unit)
-                    .onChange(of: unit) { _ in
-                        updateUnits(unit: unit)
+                UnitSwitchView(vm: vm)
+                    .onChange(of: vm.unit.unit) { _ in
+                        vm.unit.updateUnits()
                     }
                 Spacer()
                 
@@ -53,7 +40,7 @@ struct RunView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50, height: 50)
-                    .foregroundColor(updateSignalColor(signal: locationController.gpsSignalQuality))
+                    .foregroundColor(vm.updateSignalColor())
                     .padding()
             }
             
@@ -61,18 +48,18 @@ struct RunView: View {
             
             VStack {
                 HStack {
-                    Text(String(format: "%.0f", speedInUnits))
+                    Text(String(format: "%.0f", vm.speedInUnits))
                         .font(.custom("VCR OSD Mono", size: 100))
-                    Text("\(unitsTitle)")
+                    Text("\(vm.unit.title)")
                         .font(.custom("VCR OSD Mono", size: 30))
                         .padding(.top, 70)
                 }
                 HStack {
-                    if optionalTimer.mode == .running {
-                        Text(String(format: "%.1f", optionalTimer.counter))
+                    if vm.optionalTimer.mode == .running {
+                        Text(String(format: "%.1f", vm.optionalTimer.counter))
                             .font(.custom("VCR OSD Mono", size: 100))
                     } else {
-                        Text(String(format: "%.1f", timer.counter))
+                        Text(String(format: "%.1f", vm.timer.counter))
                             .font(.custom("VCR OSD Mono", size: 100))
                     }
                     
@@ -84,7 +71,7 @@ struct RunView: View {
             .padding()
             
             Spacer()
-                RunRowListView(range: range, timer: timer, optTimer: optionalTimer)
+            RunRowListView(range: vm.range, timer: vm.timer, optTimer: vm.optionalTimer)
             Spacer()
             Button {
                 showAlert = true
@@ -102,30 +89,30 @@ struct RunView: View {
             Spacer()
         }
         .onAppear {
-            if locationController.authorizationStatus == .notDetermined {
-                locationController.requestPermission()
+            if vm.authorizationStatus == .notDetermined {
+                vm.requestPermission()
             }
         }
-        .onChange(of: speedInUnits, perform: { newValue in
-            let start = Double(range.start)
-            let finish = Double(range.finish)
+        .onChange(of: vm.speedInUnits, perform: { newValue in
+            let start = Double(vm.range.start)
+            let finish = Double(vm.range.finish)
             
             switch newValue {
             case start...finish:
-                timer.start()
+                vm.timer.start()
             default:
-                timer.pause()
+                vm.timer.pause()
             }
             
-            if range.optRunActive {
-                let optStart = Double(range.optStart)
-                let optFinish = Double(range.optFinish)
+            if vm.range.optRunActive {
+                let optStart = Double(vm.range.optStart)
+                let optFinish = Double(vm.range.optFinish)
                 
                 switch newValue {
                 case optStart...optFinish:
-                    optionalTimer.start()
+                    vm.optionalTimer.start()
                 default:
-                    optionalTimer.pause()
+                    vm.optionalTimer.pause()
                 }
                 
             }
@@ -140,40 +127,16 @@ struct RunView: View {
         })
     }
     
-    private func updateSignalColor(signal: Signal) -> Color {
-        switch signal {
-        case .good:
-            return .green
-        case .mediocre:
-            return .yellow
-        case .weak:
-            return .red
-        case .none:
-            return .black
-        }
-    }
-    
-    private func updateUnits(unit: Unit) {
-        switch unit {
-        case .kph:
-            unitsMultiplier = 3.6
-            unitsTitle = "kmh"
-        case .mph:
-            unitsMultiplier = 2.2369
-            unitsTitle = "mph"
-        }
-    }
-    
     private func addRun(title: String) {
         withAnimation {
             let newRun = Run(context: context)
             newRun.timestamp = Date()
             newRun.id = UUID()
             newRun.title = title
-            newRun.start = Int16(range.start)
-            newRun.finish = Int16(range.finish)
-            newRun.time = timer.counter
-            newRun.unit = unitsTitle
+            newRun.start = Int16(vm.range.start)
+            newRun.finish = Int16(vm.range.finish)
+            newRun.time = vm.timer.counter
+            newRun.unit = vm.unit.title
             do {
                 try context.save()
             } catch {

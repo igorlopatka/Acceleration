@@ -11,17 +11,17 @@ import SwiftUI
 class UnitManager: ObservableObject {
     
     @Published var unit = Unit.kph
-    @Published var unitsMultiplier = 3.6
-    @Published var unitsTitle = "kmh"
+    @Published var multiplier = 3.6
+    @Published var title = "kmh"
     
-    func updateUnits(unit: Unit) {
+    func updateUnits() {
         switch unit {
         case .kph:
-            unitsMultiplier = 3.6
-            unitsTitle = "kmh"
+            multiplier = 3.6
+            title = "kmh"
         case .mph:
-            unitsMultiplier = 2.2369
-            unitsTitle = "mph"
+            multiplier = 2.2369
+            title = "mph"
         }
     }
 }

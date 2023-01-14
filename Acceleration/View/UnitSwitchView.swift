@@ -9,14 +9,14 @@ import SwiftUI
 
 struct UnitSwitchView: View {
     
-    @Binding var unit: Unit
+    @ObservedObject var vm: RunViewModel
 
     var body: some View {
         HStack {
             Button {
-                unit = .kph
+                vm.unit.unit = .kph
             } label: {
-                switch unit {
+                switch vm.unit.unit {
                 case .kph:
                     UnitSymbolView(symbolName: "kph.circle.fill")
                 case .mph:
@@ -24,9 +24,9 @@ struct UnitSwitchView: View {
                 }
             }
             Button {
-                unit = .mph
+                vm.unit.unit = .mph
             } label: {
-                switch unit {
+                switch vm.unit.unit {
                 case .kph:
                     UnitSymbolView(symbolName: "mph.circle")
                 case .mph:
