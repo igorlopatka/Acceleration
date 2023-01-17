@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TimerBigLabelView: View {
+struct BigTimerLabelView: View {
     
     @ObservedObject var timer: TimerManager
     @ObservedObject var optionalTimer: TimerManager

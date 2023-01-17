@@ -58,7 +58,7 @@ struct RunView: View {
                         .padding(.top, 70)
                 }
                 
-                TimerBigLabelView(timer: vm.timer, optionalTimer: vm.optionalTimer)
+                BigTimerLabelView(timer: vm.timer, optionalTimer: vm.optionalTimer)
             }
             .padding()
             
