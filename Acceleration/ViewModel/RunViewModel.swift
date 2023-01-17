@@ -10,11 +10,11 @@ import SwiftUI
 
 class RunViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
-    var timer = TimerManager()
-    var optionalTimer = TimerManager()
     var range = RangeManager()
     var unit = UnitManager()
-    
+    var timer = TimerManager()
+    var optionalTimer = TimerManager()
+
     @Published var authorizationStatus: CLAuthorizationStatus
     @Published var lastSeenLocation: CLLocation?
     

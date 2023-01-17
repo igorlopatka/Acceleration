@@ -10,12 +10,12 @@ import SwiftUI
 @main
 struct AccelerationApp: App {
     
-    @StateObject private var runDataController = DataManager()
+    @StateObject private var data = DataManager()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, runDataController.container.viewContext)
+                .environment(\.managedObjectContext, data.container.viewContext)
         }
     }
 }
