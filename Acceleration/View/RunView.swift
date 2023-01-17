@@ -57,19 +57,8 @@ struct RunView: View {
                         .font(.custom("VCR OSD Mono", size: 30))
                         .padding(.top, 70)
                 }
-                HStack {
-                    if vm.optionalTimer.mode == .running {
-                        Text(String(format: "%.1f", vm.optionalTimer.counter))
-                            .font(.custom("VCR OSD Mono", size: 100))
-                    } else {
-                        Text(String(format: "%.1f", vm.timer.counter))
-                            .font(.custom("VCR OSD Mono", size: 100))
-                    }
-                    
-                    Text("sec")
-                        .font(.custom("VCR OSD Mono", size: 30))
-                        .padding(.top, 70)
-                }
+                
+                TimerBigLabelView(timer: vm.timer, optionalTimer: vm.optionalTimer)
             }
             .padding()
             

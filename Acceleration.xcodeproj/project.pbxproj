@@ -13,6 +13,7 @@
 		45531A1527DF60E000F9897D /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1427DF60E000F9897D /* RunView.swift */; };
 		457CBB9728056D7300E5F637 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457CBB9628056D7300E5F637 /* DetailsView.swift */; };
 		4583A85C27EB46C300ED0956 /* VCR OSD Mono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 456D39A727DD33810033186A /* VCR OSD Mono.ttf */; };
+		4583E83B2977082D0024A641 /* TimerBigLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4583E83A2977082D0024A641 /* TimerBigLabelView.swift */; };
 		4597335C2922C1FA00B938C7 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4597335B2922C1FA00B938C7 /* Unit.swift */; };
 		459F49BC27FC7CE100ED92AC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F49BB27FC7CE100ED92AC /* DataManager.swift */; };
 		459F49BE27FC7EB600ED92AC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F49BD27FC7EB600ED92AC /* LocationManager.swift */; };
@@ -58,6 +59,7 @@
 		456D39A727DD33810033186A /* VCR OSD Mono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VCR OSD Mono.ttf"; sourceTree = "<group>"; };
 		457CBB9628056D7300E5F637 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		4583A85D27EB476F00ED0956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4583E83A2977082D0024A641 /* TimerBigLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBigLabelView.swift; sourceTree = "<group>"; };
 		4597335B2922C1FA00B938C7 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		459F49BB27FC7CE100ED92AC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		459F49BD27FC7EB600ED92AC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			children = (
 				45B805D727C2AAB700E9D57B /* ContentView.swift */,
 				45531A1427DF60E000F9897D /* RunView.swift */,
+				4583E83A2977082D0024A641 /* TimerBigLabelView.swift */,
 				45531A1227DF5F1300F9897D /* HistoryView.swift */,
 				457CBB9628056D7300E5F637 /* DetailsView.swift */,
 				45C4D5BD2805FA98008AC09B /* RunRowListView.swift */,
@@ -341,6 +344,7 @@
 				457CBB9728056D7300E5F637 /* DetailsView.swift in Sources */,
 				45531A1327DF5F1300F9897D /* HistoryView.swift in Sources */,
 				459F49BC27FC7CE100ED92AC /* DataManager.swift in Sources */,
+				4583E83B2977082D0024A641 /* TimerBigLabelView.swift in Sources */,
 				454DD30B2922BE8E0068FCCA /* UnitSwitchView.swift in Sources */,
 				45A63D02296F20F8007DB018 /* Mode.swift in Sources */,
 				45C4D5BE2805FA98008AC09B /* RunRowListView.swift in Sources */,
