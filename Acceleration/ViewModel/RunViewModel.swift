@@ -14,6 +14,8 @@ class RunViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     var unit = UnitManager()
     var timer = TimerManager()
     var optionalTimer = TimerManager()
+    
+    @Published var runActive = false
 
     @Published var authorizationStatus: CLAuthorizationStatus
     @Published var lastSeenLocation: CLLocation?
@@ -90,6 +92,14 @@ class RunViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             return .red
         case .none:
             return .black
+        }
+    }
+    
+    func updateRunState() {
+        if timer.mode == .running || optionalTimer.mode == .running {
+            runActive = true
+        } else {
+            runActive = false
         }
     }
 }

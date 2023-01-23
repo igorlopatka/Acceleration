@@ -32,7 +32,7 @@ struct RunView: View {
                 
                 Spacer()
                 
-                UnitSwitchView(unit: vm.unit)
+                UnitSwitchView(vm: vm)
                     .onChange(of: vm.unit.unit) { _ in
                         vm.unit.updateUnits()
                     }
@@ -108,6 +108,12 @@ struct RunView: View {
                     vm.optionalTimer.pause()
                 }
             }
+        })
+        .onChange(of: vm.timer.mode, perform: { _ in
+            vm.updateRunState()
+        })
+        .onChange(of: vm.optionalTimer.mode, perform: { _ in
+            vm.updateRunState()
         })
         .alert(isPresented: $showAlert,
                TextAlert(title: "SAVE RUN",
