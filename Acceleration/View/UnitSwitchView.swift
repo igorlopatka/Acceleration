@@ -23,7 +23,6 @@ struct UnitSwitchView: View {
                     UnitSymbolView(symbolName: "kph.circle")
                 }
             }
-            .disabled(vm.runActive)
             Button {
                 vm.unit.unit = .mph
             } label: {
@@ -35,8 +34,8 @@ struct UnitSwitchView: View {
 
                 }
             }
-            .disabled(vm.runActive)
         }
+        .disabled(vm.runActive)
         .padding()
     }
 }
