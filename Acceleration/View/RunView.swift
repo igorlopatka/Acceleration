@@ -39,7 +39,7 @@ struct RunView: View {
                 
                 Spacer()
                 
-                Image("signal")
+                Image(systemName: vm.updateSignalSymbol())
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50, height: 50)

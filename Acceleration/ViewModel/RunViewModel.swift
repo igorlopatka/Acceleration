@@ -82,6 +82,14 @@ class RunViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    func updateSignalSymbol() -> String {
+        if signalQuality == .none {
+            return "antenna.radiowaves.left.and.right.slash"
+        } else {
+            return "antenna.radiowaves.left.and.right"
+        }
+    }
+    
     func updateSignalColor() -> Color {
         switch signalQuality {
         case .good:
