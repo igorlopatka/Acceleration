@@ -9,18 +9,14 @@ import SwiftUI
 
 struct UnitSymbolView: View {
     
+    @Binding var isActive: Bool
     let symbolName: String
     
     var body: some View {
         Image(systemName: symbolName)
             .resizable()
             .frame(width: 40, height: 40)
-            .foregroundStyle(.foreground)
-    }
-}
-
-struct UnitSymbolView_Previews: PreviewProvider {
-    static var previews: some View {
-        UnitSymbolView(symbolName: "kph.circle")
+            .foregroundColor(isActive ? .secondary : .primary)
+            .disabled(isActive)
     }
 }
