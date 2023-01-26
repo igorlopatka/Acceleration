@@ -133,6 +133,11 @@ struct RunView: View {
             newRun.title = title
             newRun.start = Int16(vm.range.start)
             newRun.finish = Int16(vm.range.finish)
+            newRun.optionalRun = vm.range.optRunActive
+            if newRun.optionalRun == true {
+                newRun.optionalStart = Int16(vm.range.optStart)
+                newRun.optionalFinish = Int16(vm.range.optFinish)
+            }
             newRun.time = vm.timer.counter
             newRun.unit = vm.unit.title
             do {
