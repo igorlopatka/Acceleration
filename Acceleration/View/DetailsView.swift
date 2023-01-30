@@ -16,8 +16,19 @@ struct DetailsView: View {
             Text(run.title ?? "No title")
                 .padding(20)
                 .font(.largeTitle)
-            Text("\(String(run.start)) - \(String(run.finish))")
-            Text(String(format: "%.2f", run.time) + " sec")
+            VStack {
+                Text("\(String(run.start)) - \(String(run.finish))")
+                Text(String(format: "%.2f", run.time) + " sec")
+            }
+            
+            if run.optionalRun == true {
+                VStack {
+                    Text("\(String(run.optionalStart)) - \(String(run.optionalFinish))")
+                    Text(String(format: "%.2f", run.optionalTime) + " sec")
+                }
+                
+            }
+            
             Text("Units: " + (run.unit ?? "no unit"))
             Spacer()
         }

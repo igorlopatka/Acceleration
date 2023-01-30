@@ -65,6 +65,7 @@ struct RunView: View {
             Spacer()
             
             RunRowListView(range: vm.range, timer: vm.timer, optTimer: vm.optionalTimer)
+                .frame(alignment: .trailing)
             
             Spacer()
             
@@ -80,6 +81,7 @@ struct RunView: View {
             .cornerRadius(50)
             .padding(.bottom)
             .buttonStyle(.plain)
+            .disabled(vm.runActive)
         
             Spacer()
         }
@@ -137,6 +139,7 @@ struct RunView: View {
             if newRun.optionalRun == true {
                 newRun.optionalStart = Int16(vm.range.optStart)
                 newRun.optionalFinish = Int16(vm.range.optFinish)
+                newRun.optionalTime = vm.optionalTimer.counter
             }
             newRun.time = vm.timer.counter
             newRun.unit = vm.unit.title
