@@ -38,7 +38,9 @@ struct RunRowListView: View {
                 Image(systemName: range.optRunActive ? "minus.circle" : "plus.circle")
                     .tint(range.optRunActive ? .gray : .green)
             }
+            .padding(.trailing, 60)
         }
+        .padding(.trailing, 50)
     }
 }
 

@@ -23,6 +23,7 @@ struct RunRowView: View {
                     }
                 }
             }
+            .frame(maxWidth: .infinity, alignment: .trailing)
             .tint(.pink)
             .padding(.leading, 40)
             
@@ -35,6 +36,7 @@ struct RunRowView: View {
                     }
                 }
             }
+            .frame(maxWidth: .infinity, alignment: .trailing)
             .tint(.pink)
             .padding(.trailing, 40)
         }
