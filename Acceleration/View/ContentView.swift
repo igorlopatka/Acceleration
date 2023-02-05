@@ -25,7 +25,7 @@ struct ContentView: View {
             
             HistoryView()
                 .tabItem {
-                    Image(systemName: "clock")
+                    Image(systemName: "stopwatch.fill")
                     Text("History")
                 }
         }
