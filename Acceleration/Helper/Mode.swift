@@ -8,7 +8,5 @@
 import Foundation
 
 enum Mode {
-    case running
-    case stopped
-    case paused
+    case running, stopped, paused
 }
