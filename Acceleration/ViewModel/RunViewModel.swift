@@ -20,7 +20,7 @@ class RunViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus
     @Published var lastSeenLocation: CLLocation?
     
-    //MARK: - Location Manager
+    //MARK: - Location Manager State
     
     private let locationManager: CLLocationManager
     
@@ -70,6 +70,8 @@ class RunViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         return inUnits
     }
     
+    // MARK: - GPS Signal State
+    
     var signalQuality: Signal {
         if (gpsAccuracy < 0) {
             return .none
@@ -103,11 +105,18 @@ class RunViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    //MARK: - Timer Managers State
+    
     func updateRunState() {
         if timer.mode == .running || optionalTimer.mode == .running {
             runActive = true
         } else {
             runActive = false
         }
+    }
+    
+    func resetTimers() {
+        timer.reset()
+        optionalTimer.reset()
     }
 }

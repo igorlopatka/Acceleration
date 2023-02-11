@@ -19,8 +19,7 @@ struct RunView: View {
         VStack {
             HStack {
                 Button(action: {
-                    vm.timer.reset()
-                    vm.optionalTimer.reset()
+                    vm.resetTimers()
                 }) {
                     Image(systemName: "arrow.counterclockwise")
                         .resizable()
