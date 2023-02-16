@@ -86,7 +86,8 @@ struct RunView: View {
                 Button {
                     showAbout = true
                 } label: {
-                    Text("ABOUT")
+                    Text("ABOUT ACCELERATION")
+                        .font(.footnote)
                         .foregroundColor(.secondary)
                 }
                 .sheet(isPresented: $showAbout) {
