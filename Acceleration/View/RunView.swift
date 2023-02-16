@@ -14,6 +14,7 @@ struct RunView: View {
     
     @StateObject var vm = RunViewModel()
     @State private var showAlert = false
+    @State private var showAbout = false
     
     var body: some View {
         VStack {
@@ -67,21 +68,33 @@ struct RunView: View {
                 .frame(alignment: .trailing)
             
             Spacer()
-            
-            Button {
-                showAlert = true
-            } label: {
-                Text("SAVE RUN")
-                    .foregroundColor(.white)
-                    .bold()
+            VStack {
+                Button {
+                    showAlert = true
+                } label: {
+                    Text("SAVE RUN")
+                        .foregroundColor(.white)
+                        .bold()
+                }
+                .frame(width: 130, height: 40)
+                .background(.pink)
+                .cornerRadius(50)
+                .padding(.bottom)
+                .buttonStyle(.plain)
+                .disabled(vm.runActive)
+                
+                Button {
+                    showAbout = true
+                } label: {
+                    Text("ABOUT")
+                        .foregroundColor(.secondary)
+                }
+                .sheet(isPresented: $showAbout) {
+                    AboutView()
+                }
             }
-            .frame(width: 130, height: 40)
-            .background(.pink)
-            .cornerRadius(50)
-            .padding(.bottom)
-            .buttonStyle(.plain)
-            .disabled(vm.runActive)
-        
+            
+            
             Spacer()
         }
         .onAppear {
