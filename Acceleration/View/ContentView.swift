@@ -15,9 +15,11 @@ struct ContentView: View {
         SortDescriptor(\.title)
     ]) var runs: FetchedResults<Run>
     
+    @StateObject var vm = RunViewModel()
+    
     var body: some View {
         TabView {
-            RunView()
+            RunView(vm: vm)
                 .tabItem {
                     Image(systemName: "car")
                     Text("Run")
@@ -27,6 +29,11 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "stopwatch.fill")
                     Text("History")
+                }
+            SettingsView(vm: vm)
+                .tabItem {
+                    Image(systemName: "gearshape.2.fill")
+                    Text("Settings")
                 }
         }
         .accentColor(.pink)
