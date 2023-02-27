@@ -17,5 +17,15 @@ final class RunViewModelTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testInitialization() {
+        
+        // Initialize Run View Model
+        let runViewModel = RunViewModel()
 
+        XCTAssertNotNil(runViewModel, "The profile view model should not be nil.")
+    }
+    
+    
+    
 }
