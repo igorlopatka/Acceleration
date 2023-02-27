@@ -12,7 +12,8 @@ struct RunView: View {
     @Environment(\.managedObjectContext) var context
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var vm = RunViewModel()
+    @ObservedObject var vm: RunViewModel
+    
     @State private var showAlert = false
     @State private var showAbout = false
     
@@ -168,6 +169,6 @@ struct RunView: View {
 
 struct RunView_Previews: PreviewProvider {
     static var previews: some View {
-        RunView()
+        RunView(vm: RunViewModel())
     }
 }
