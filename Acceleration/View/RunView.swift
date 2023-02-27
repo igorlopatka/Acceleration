@@ -15,7 +15,6 @@ struct RunView: View {
     @ObservedObject var vm: RunViewModel
     
     @State private var showAlert = false
-    @State private var showAbout = false
     
     var body: some View {
         VStack {
@@ -83,20 +82,7 @@ struct RunView: View {
                 .padding(.bottom)
                 .buttonStyle(.plain)
                 .disabled(vm.runActive)
-                
-                Button {
-                    showAbout = true
-                } label: {
-                    Text("ABOUT ACCELERATION")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                }
-                .sheet(isPresented: $showAbout) {
-                    AboutView()
-                }
             }
-            
-            
             Spacer()
         }
         .onAppear {

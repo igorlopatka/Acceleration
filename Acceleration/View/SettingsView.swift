@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @ObservedObject var vm: RunViewModel
+    @State private var showAbout = false
     
     var unitSelected: String {
         switch vm.unit.unit {
@@ -26,12 +27,16 @@ struct SettingsView: View {
                 Section(header: Text("First run")) {
                     Picker("Start at:", selection: $vm.range.start) {
                         ForEach(vm.range.values, id: \.self) {
-                            Text(String($0))
+                            if $0 < vm.range.finish {
+                                Text(String($0))
+                            }
                         }
                     }
                     Picker("Finish at:", selection: $vm.range.finish) {
                         ForEach(vm.range.values, id: \.self) {
-                            Text(String($0))
+                            if $0 > vm.range.start {
+                                Text(String($0))
+                            }
                         }
                     }
                 }
@@ -41,12 +46,16 @@ struct SettingsView: View {
                     if vm.range.optRunActive {
                         Picker("Start at:", selection: $vm.range.optStart) {
                             ForEach(vm.range.values, id: \.self) {
-                                Text(String($0))
+                                if $0 < vm.range.optFinish {
+                                    Text(String($0))
+                                }
                             }
                         }
                         Picker("Finish at:", selection: $vm.range.optFinish) {
                             ForEach(vm.range.values, id: \.self) {
-                                Text(String($0))
+                                if $0 > vm.range.optStart {
+                                    Text(String($0))
+                                }
                             }
                         }
                     }
@@ -61,15 +70,19 @@ struct SettingsView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }
+                Button {
+                    showAbout.toggle()
+                } label: {
+                    HStack {
+                        Image(systemName: "info.circle")
+                        Text("ABOUT ACCELERATION")
+                    }
+                }
+                .sheet(isPresented: $showAbout) {
+                    AboutView()
+                }
             }
             .navigationTitle("Settings")
         }
     }
 }
-
-//    struct SettingsView_Previews: PreviewProvider {
-//        static var previews: some View {
-//            SettingsView(vm: RunViewModel())
-//        }
-//    }
-
