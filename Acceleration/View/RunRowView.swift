@@ -11,6 +11,7 @@ struct RunRowView: View {
     
     @Binding var start: Int
     @Binding var finish: Int
+    @Binding var active: Bool
     
     let values = [0,20,40,60,80,100,120,140,160,180,200,220,240,260,280,300]
     
@@ -23,6 +24,7 @@ struct RunRowView: View {
                     }
                 }
             }
+            .disabled(active)
             .tint(.pink)
             .padding(.leading, 40)
             
@@ -35,6 +37,7 @@ struct RunRowView: View {
                     }
                 }
             }
+            .disabled(active)
             .tint(.pink)
             .padding(.trailing, 40)
         }

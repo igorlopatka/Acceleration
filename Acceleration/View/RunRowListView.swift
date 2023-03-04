@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RunRowListView: View {
     
+    @ObservedObject var vm: RunViewModel
     @ObservedObject var range: RangeManager
     @ObservedObject var timer: TimerManager
     @ObservedObject var optTimer: TimerManager
@@ -16,14 +17,14 @@ struct RunRowListView: View {
     var body: some View {
         VStack {
             HStack {
-                RunRowView(start: $range.start, finish: $range.finish)
+                RunRowView(start: $range.start, finish: $range.finish, active: $vm.runActive)
                 Text((String(format: "%.1f", timer.counter)) + "s")
                     .bold()
                     .frame(width: 50)
             }
             if range.optRunActive {
                 HStack {
-                    RunRowView(start: $range.optStart, finish: $range.optFinish)
+                    RunRowView(start: $range.optStart, finish: $range.optFinish, active: $vm.runActive)
                     Text((String(format: "%.1f", optTimer.counter)) + "s")
                         .bold()
                         .frame(width: 50)
@@ -47,6 +48,6 @@ struct RunRowListView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        RunRowListView(range: RangeManager(), timer: TimerManager(), optTimer: TimerManager())
+        RunRowListView(vm: RunViewModel(), range: RangeManager(), timer: TimerManager(), optTimer: TimerManager())
     }
 }

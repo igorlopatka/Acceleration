@@ -64,7 +64,7 @@ struct RunView: View {
             
             Spacer()
             
-            RunRowListView(range: vm.range, timer: vm.timer, optTimer: vm.optionalTimer)
+            RunRowListView(vm: vm, range: vm.range, timer: vm.timer, optTimer: vm.optionalTimer)
                 .frame(alignment: .trailing)
             
             Spacer()
@@ -87,6 +87,9 @@ struct RunView: View {
         }
         .onAppear {
             vm.requestPermission()
+        }
+        .onDisappear {
+            vm.resetTimers()
         }
         .onChange(of: vm.speedInUnits, perform: { newValue in
             let start = Double(vm.range.start)
@@ -119,7 +122,7 @@ struct RunView: View {
         })
         .alert(isPresented: $showAlert,
                TextAlert(title: "SAVE RUN",
-                         message: "",
+                         message: "Save current run to History",
                          keyboardType: .default) { result in
             if let text = result {
                 addRun(title: text)
