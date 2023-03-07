@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/xcode,swift,swiftpm,swiftpackagemanager
 # Edit at https://www.toptal.com/developers/gitignore?templates=xcode,swift,swiftpm,swiftpackagemanager
 
+*.plist
+
 ### Swift ###
 # Xcode
 #
