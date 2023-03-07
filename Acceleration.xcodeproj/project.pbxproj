@@ -213,7 +213,6 @@
 		45C4D5BF2806073D008AC09B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				45D6B41429B7A5E600ED5F2C /* AdMob  */,
 				45B805D727C2AAB700E9D57B /* ContentView.swift */,
 				45531A1427DF60E000F9897D /* RunView.swift */,
 				4583E83C2977098F0024A641 /* BigSpeedLabelView.swift */,
@@ -227,6 +226,7 @@
 				45DF85FB292F8EBB0050799F /* UnitSymbolView.swift */,
 				45216B90299EA37E00FD63C4 /* AboutView.swift */,
 				455A6D4029AD1DFC00C091D8 /* SettingsView.swift */,
+				45D6B41429B7A5E600ED5F2C /* AdMob  */,
 				4550046029B65BE000B3E5E0 /* AccelerationLaunchScreen.storyboard */,
 			);
 			path = View;
