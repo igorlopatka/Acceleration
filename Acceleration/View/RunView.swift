@@ -87,6 +87,7 @@ struct RunView: View {
             Spacer()
             
             BannerView()
+                .frame(height: 120)
         }
         .onAppear {
             vm.requestPermission()
