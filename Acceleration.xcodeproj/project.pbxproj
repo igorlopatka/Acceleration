@@ -36,6 +36,8 @@
 		45C4D5BC2805F9E8008AC09B /* RangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4D5BB2805F9E8008AC09B /* RangeManager.swift */; };
 		45C4D5BE2805FA98008AC09B /* RunRowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4D5BD2805FA98008AC09B /* RunRowListView.swift */; };
 		45D6B41129B79A7F00ED5F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6B41029B79A7F00ED5F2C /* AppDelegate.swift */; };
+		45D6B41629B7A60300ED5F2C /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6B41529B7A60300ED5F2C /* BannerViewController.swift */; };
+		45D6B41829B7A68000ED5F2C /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6B41729B7A68000ED5F2C /* BannerView.swift */; };
 		45D9A10029731B54000CD7C8 /* RunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D9A0FF29731B54000CD7C8 /* RunViewModel.swift */; };
 		45D9A10329731C93000CD7C8 /* UnitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D9A10229731C93000CD7C8 /* UnitManager.swift */; };
 		45DF85FC292F8EBB0050799F /* UnitSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF85FB292F8EBB0050799F /* UnitSymbolView.swift */; };
@@ -72,7 +74,6 @@
 		455A6D4029AD1DFC00C091D8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		456D39A727DD33810033186A /* VCR OSD Mono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VCR OSD Mono.ttf"; sourceTree = "<group>"; };
 		457CBB9628056D7300E5F637 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
-		4583A85D27EB476F00ED0956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4583E83A2977082D0024A641 /* BigTimerLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigTimerLabelView.swift; sourceTree = "<group>"; };
 		4583E83C2977098F0024A641 /* BigSpeedLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigSpeedLabelView.swift; sourceTree = "<group>"; };
 		4597335B2922C1FA00B938C7 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
@@ -91,6 +92,9 @@
 		45C4D5BB2805F9E8008AC09B /* RangeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeManager.swift; sourceTree = "<group>"; };
 		45C4D5BD2805FA98008AC09B /* RunRowListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunRowListView.swift; sourceTree = "<group>"; };
 		45D6B41029B79A7F00ED5F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		45D6B41229B7A1DE00ED5F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45D6B41529B7A60300ED5F2C /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
+		45D6B41729B7A68000ED5F2C /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		45D9A0FF29731B54000CD7C8 /* RunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunViewModel.swift; sourceTree = "<group>"; };
 		45D9A10229731C93000CD7C8 /* UnitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitManager.swift; sourceTree = "<group>"; };
 		45DF85FB292F8EBB0050799F /* UnitSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSymbolView.swift; sourceTree = "<group>"; };
@@ -178,8 +182,8 @@
 				45C2B6A328F9F8D800633B4A /* Manager */,
 				4597335D2922C21F00B938C7 /* Helper */,
 				45B805E027C2AAB800E9D57B /* Acceleration.xcdatamodeld */,
-				4583A85D27EB476F00ED0956 /* Info.plist */,
 				45B805D927C2AAB800E9D57B /* Assets.xcassets */,
+				45D6B41229B7A1DE00ED5F2C /* Info.plist */,
 				456D39A727DD33810033186A /* VCR OSD Mono.ttf */,
 				45B805DB27C2AAB800E9D57B /* Preview Content */,
 			);
@@ -209,6 +213,7 @@
 		45C4D5BF2806073D008AC09B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				45D6B41429B7A5E600ED5F2C /* AdMob  */,
 				45B805D727C2AAB700E9D57B /* ContentView.swift */,
 				45531A1427DF60E000F9897D /* RunView.swift */,
 				4583E83C2977098F0024A641 /* BigSpeedLabelView.swift */,
@@ -225,6 +230,15 @@
 				4550046029B65BE000B3E5E0 /* AccelerationLaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		45D6B41429B7A5E600ED5F2C /* AdMob  */ = {
+			isa = PBXGroup;
+			children = (
+				45D6B41529B7A60300ED5F2C /* BannerViewController.swift */,
+				45D6B41729B7A68000ED5F2C /* BannerView.swift */,
+			);
+			path = "AdMob ";
 			sourceTree = "<group>";
 		};
 		45D9A10129731BD6000CD7C8 /* ViewModel */ = {
@@ -399,9 +413,11 @@
 				45A8BB7427FF6ABE00644FA1 /* TimerManager.swift in Sources */,
 				45C4D5BC2805F9E8008AC09B /* RangeManager.swift in Sources */,
 				455A6D4129AD1DFC00C091D8 /* SettingsView.swift in Sources */,
+				45D6B41629B7A60300ED5F2C /* BannerViewController.swift in Sources */,
 				45D9A10029731B54000CD7C8 /* RunViewModel.swift in Sources */,
 				457CBB9728056D7300E5F637 /* DetailsView.swift in Sources */,
 				45531A1327DF5F1300F9897D /* HistoryView.swift in Sources */,
+				45D6B41829B7A68000ED5F2C /* BannerView.swift in Sources */,
 				45D6B41129B79A7F00ED5F2C /* AppDelegate.swift in Sources */,
 				459F49BC27FC7CE100ED92AC /* DataManager.swift in Sources */,
 				45216B91299EA37E00FD63C4 /* AboutView.swift in Sources */,

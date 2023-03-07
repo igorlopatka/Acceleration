@@ -5,6 +5,7 @@
 //  Created by Igor Łopatka on 14/03/2022.
 //
 
+
 import SwiftUI
 
 struct RunView: View {
@@ -84,6 +85,8 @@ struct RunView: View {
                 .disabled(vm.runActive)
             }
             Spacer()
+            
+            BannerView()
         }
         .onAppear {
             vm.requestPermission()
