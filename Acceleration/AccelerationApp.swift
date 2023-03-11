@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct AccelerationApp: App {
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     @StateObject private var data = DataManager()
 
     var body: some Scene {
