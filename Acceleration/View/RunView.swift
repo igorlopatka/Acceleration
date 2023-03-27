@@ -16,6 +16,7 @@ struct RunView: View {
     @ObservedObject var vm: RunViewModel
     
     @State private var showAlert = false
+    @State private var title = ""
     
     var body: some View {
         VStack {
@@ -124,14 +125,15 @@ struct RunView: View {
         .onChange(of: vm.optionalTimer.mode, perform: { _ in
             vm.updateRunState()
         })
-        .alert(isPresented: $showAlert,
-               TextAlert(title: "SAVE RUN",
-                         message: "Save current run to History",
-                         keyboardType: .default) { result in
-            if let text = result {
-                addRun(title: text)
-            } else {}
-        })
+        .alert("Save current run", isPresented: $showAlert, actions: {
+                    TextField("Title", text: $title)
+                    Button("Save", action: {
+                        addRun(title: title)
+                    })
+                    Button("Cancel", role: .cancel, action: {
+                        showAlert = false
+                    })
+                }, message: {})
     }
     
     private func addRun(title: String) {
