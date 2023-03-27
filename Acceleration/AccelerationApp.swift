@@ -11,8 +11,12 @@ import SwiftUI
 struct AccelerationApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
     @StateObject private var data = DataManager()
+    
+    init() {
+        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .systemPink
+
+    }
 
     var body: some Scene {
         WindowGroup {
