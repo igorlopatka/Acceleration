@@ -35,7 +35,6 @@
 		45D6B41629B7A60300ED5F2C /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6B41529B7A60300ED5F2C /* BannerViewController.swift */; };
 		45D6B41829B7A68000ED5F2C /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6B41729B7A68000ED5F2C /* BannerView.swift */; };
 		45D9A10029731B54000CD7C8 /* RunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D9A0FF29731B54000CD7C8 /* RunViewModel.swift */; };
-		45D9A10329731C93000CD7C8 /* UnitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D9A10229731C93000CD7C8 /* UnitManager.swift */; };
 		45DF85FC292F8EBB0050799F /* UnitSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF85FB292F8EBB0050799F /* UnitSymbolView.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +68,6 @@
 		45D6B41529B7A60300ED5F2C /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
 		45D6B41729B7A68000ED5F2C /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		45D9A0FF29731B54000CD7C8 /* RunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunViewModel.swift; sourceTree = "<group>"; };
-		45D9A10229731C93000CD7C8 /* UnitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitManager.swift; sourceTree = "<group>"; };
 		45DF85FB292F8EBB0050799F /* UnitSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSymbolView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,7 +142,6 @@
 				459F49BD27FC7EB600ED92AC /* LocationManager.swift */,
 				45C4D5BB2805F9E8008AC09B /* RangeManager.swift */,
 				45A8BB7327FF6ABE00644FA1 /* TimerManager.swift */,
-				45D9A10229731C93000CD7C8 /* UnitManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -309,7 +306,6 @@
 				45A63D02296F20F8007DB018 /* Mode.swift in Sources */,
 				45C4D5BE2805FA98008AC09B /* RunRowListView.swift in Sources */,
 				4583E83D2977098F0024A641 /* BigSpeedLabelView.swift in Sources */,
-				45D9A10329731C93000CD7C8 /* UnitManager.swift in Sources */,
 				45B805D627C2AAB700E9D57B /* AccelerationApp.swift in Sources */,
 				45A63D08296F2A16007DB018 /* RunRowView.swift in Sources */,
 				45B805E227C2AAB800E9D57B /* Acceleration.xcdatamodeld in Sources */,
