@@ -9,34 +9,34 @@ import SwiftUI
 
 struct UnitSwitchView: View {
     
-    @Binding var isActive: Bool
-    @ObservedObject var unit: UnitManager
-
+    @Binding var unit: Unit
+    var isActive: Bool
+    
     var body: some View {
         HStack {
             Button {
-                unit.unit = .kph
+                unit = .kph
             } label: {
-                switch unit.unit {
+                switch unit {
                 case .kph:
-                    UnitSymbolView(isActive: $isActive, symbolName: "kph.circle.fill")
+                    UnitSymbolView(symbolName: "kph.circle.fill")
                 case .mph:
-                    UnitSymbolView(isActive: $isActive, symbolName: "kph.circle")
+                    UnitSymbolView(symbolName: "kph.circle")
                 }
             }
             Button {
-                unit.unit = .mph
+                unit = .mph
             } label: {
-                switch unit.unit {
+                switch unit {
                 case .kph:
-                    UnitSymbolView(isActive: $isActive, symbolName: "mph.circle")
+                    UnitSymbolView(symbolName: "mph.circle")
                 case .mph:
-                    UnitSymbolView(isActive: $isActive, symbolName: "mph.circle.fill")
-
+                    UnitSymbolView(symbolName: "mph.circle.fill")
                 }
             }
         }
         .disabled(isActive)
+        .foregroundColor(isActive ? .secondary : .primary)
         .padding()
     }
 }

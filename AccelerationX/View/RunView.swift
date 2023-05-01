@@ -34,9 +34,9 @@ struct RunView: View {
                 
                 Spacer()
                 
-                UnitSwitchView(isActive: $vm.runActive, unit: vm.unit)
-                    .onChange(of: vm.unit.unit) { _ in
-                        vm.unit.updateUnits()
+                UnitSwitchView(unit: $vm.unit, isActive: vm.runActive)
+                    .onChange(of: vm.unit) { _ in
+                        vm.updateUnits()
                     }
                 
                 Spacer()
@@ -55,7 +55,7 @@ struct RunView: View {
                 HStack {
                     Text(String(format: "%.0f", vm.speedInUnits))
                         .font(.custom("VCR OSD Mono", size: 100))
-                    Text("\(vm.unit.title)")
+                    Text("\(vm.title)")
                         .font(.custom("VCR OSD Mono", size: 30))
                         .padding(.top, 70)
                 }
@@ -84,6 +84,7 @@ struct RunView: View {
                 .padding(.bottom)
                 .buttonStyle(.plain)
                 .disabled(vm.runActive)
+                .disabled(!vm.runFinished)
             }
             Spacer()
             
@@ -105,6 +106,9 @@ struct RunView: View {
                 vm.timer.start()
             default:
                 vm.timer.pause()
+                if vm.timer.counter != 0 {
+                    vm.runFinished = true
+                }
             }
             
             if vm.range.optRunActive {
@@ -116,6 +120,9 @@ struct RunView: View {
                     vm.optionalTimer.start()
                 default:
                     vm.optionalTimer.pause()
+                    if vm.timer.counter != 0 {
+                        vm.runFinished = true
+                    }
                 }
             }
         })
@@ -151,7 +158,7 @@ struct RunView: View {
                 newRun.optionalTime = vm.optionalTimer.counter
             }
             newRun.time = vm.timer.counter
-            newRun.unit = vm.unit.title
+            newRun.unit = vm.title
             do {
                 try context.save()
             } catch {

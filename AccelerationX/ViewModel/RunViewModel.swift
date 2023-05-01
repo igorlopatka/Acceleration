@@ -11,14 +11,18 @@ import SwiftUI
 class RunViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     var range = RangeManager()
-    var unit = UnitManager()
     var timer = TimerManager()
     var optionalTimer = TimerManager()
     
     @Published var runActive = false
-
+    @Published var runFinished = false
+    
     @Published var authorizationStatus: CLAuthorizationStatus
     @Published var lastSeenLocation: CLLocation?
+    
+    @Published var unit = Unit.kph
+    @Published var multiplier = 3.6
+    @Published var title = "kmh"
     
     //MARK: - Location Manager State
     
@@ -66,7 +70,7 @@ class RunViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     var speedInUnits: Double {
-        let inUnits = speed * unit.multiplier
+        let inUnits = speed * multiplier
         return inUnits
     }
     
@@ -118,5 +122,18 @@ class RunViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     func resetTimers() {
         timer.reset()
         optionalTimer.reset()
+    }
+    
+    //MARK: - Unit Manager State
+    
+    func updateUnits() {
+        switch unit {
+        case .kph:
+            multiplier = 3.6
+            title = "kmh"
+        case .mph:
+            multiplier = 2.2369
+            title = "mph"
+        }
     }
 }

@@ -15,7 +15,7 @@ struct BigSpeedLabelView: View {
         HStack {
             Text(String(format: "%.0f", vm.speedInUnits))
                 .font(.custom("VCR OSD Mono", size: 100))
-            Text("\(vm.unit.title)")
+            Text("\(vm.title)")
                 .font(.custom("VCR OSD Mono", size: 30))
                 .padding(.top, 70)
         }

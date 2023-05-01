@@ -13,7 +13,7 @@ struct SettingsView: View {
     @State private var showAbout = false
     
     var unitSelected: String {
-        switch vm.unit.unit {
+        switch vm.unit {
         case .kph:
             return "Kilometers per hour"
         case .mph:
@@ -62,7 +62,7 @@ struct SettingsView: View {
                 }
                 
                 Section(header: Text("Units (per hour)")) {
-                    Picker("Units: ", selection: $vm.unit.unit) {
+                    Picker("Units: ", selection: $vm.unit) {
                         Text("KM/H")
                             .tag(Unit.kph)
                         Text("M/H")
