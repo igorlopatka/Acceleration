@@ -34,7 +34,7 @@ struct RunView: View {
                 
                 Spacer()
                 
-                UnitSwitchView(vm: vm, unit: vm.unit)
+                UnitSwitchView(isActive: $vm.runActive, unit: vm.unit)
                     .onChange(of: vm.unit.unit) { _ in
                         vm.unit.updateUnits()
                     }

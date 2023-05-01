@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UnitSwitchView: View {
     
-    @ObservedObject var vm: RunViewModel
+    @Binding var isActive: Bool
     @ObservedObject var unit: UnitManager
 
     var body: some View {
@@ -19,9 +19,9 @@ struct UnitSwitchView: View {
             } label: {
                 switch unit.unit {
                 case .kph:
-                    UnitSymbolView(isActive: $vm.runActive, symbolName: "kph.circle.fill")
+                    UnitSymbolView(isActive: $isActive, symbolName: "kph.circle.fill")
                 case .mph:
-                    UnitSymbolView(isActive: $vm.runActive, symbolName: "kph.circle")
+                    UnitSymbolView(isActive: $isActive, symbolName: "kph.circle")
                 }
             }
             Button {
@@ -29,14 +29,14 @@ struct UnitSwitchView: View {
             } label: {
                 switch unit.unit {
                 case .kph:
-                    UnitSymbolView(isActive: $vm.runActive, symbolName: "mph.circle")
+                    UnitSymbolView(isActive: $isActive, symbolName: "mph.circle")
                 case .mph:
-                    UnitSymbolView(isActive: $vm.runActive, symbolName: "mph.circle.fill")
+                    UnitSymbolView(isActive: $isActive, symbolName: "mph.circle.fill")
 
                 }
             }
         }
-        .disabled(vm.runActive)
+        .disabled(isActive)
         .padding()
     }
 }
