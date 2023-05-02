@@ -70,17 +70,6 @@ struct SettingsView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }
-                Button {
-                    showAbout.toggle()
-                } label: {
-                    HStack {
-                        Image(systemName: "info.circle")
-                        Text("ABOUT ACCELERATION")
-                    }
-                }
-                .sheet(isPresented: $showAbout) {
-                    AboutView()
-                }
             }
             .navigationTitle("Settings")
         }
