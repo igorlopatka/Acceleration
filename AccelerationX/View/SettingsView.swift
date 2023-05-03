@@ -70,8 +70,27 @@ struct SettingsView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }
+                
+                Section(header: Text("About AccelerationX"), footer: aboutText()) {
+                    
+                }
             }
             .navigationTitle("Settings")
         }
     }
+    
+    func aboutText() -> some View {
+        VStack {
+            Text("[Privacy Policy](https://example.com)")
+            Text("[About Me](https://example.com)")
+            
+            Text("Lorem ipsum")
+
+        }
+    }
 }
+    struct SetingsView_Previews: PreviewProvider {
+        static var previews: some View {
+            SettingsView(vm: RunViewModel())
+        }
+    }
