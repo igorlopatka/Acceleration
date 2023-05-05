@@ -84,6 +84,7 @@ struct SettingsView: View {
             Text("[Privacy Policy](https://example.com)")
             Text("[About Me](https://example.com)")
             
+            
             Text("Lorem ipsum")
 
         }
