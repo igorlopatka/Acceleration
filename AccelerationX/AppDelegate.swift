@@ -14,9 +14,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
     GADMobileAds.sharedInstance().start(completionHandler: nil)
-
-    print("Did finish launching with options")
+    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ "91e18b856124668496928305069c88ab" ]
+ 
     return true
   }
-
 }
