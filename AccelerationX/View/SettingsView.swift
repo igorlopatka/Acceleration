@@ -25,16 +25,16 @@ struct SettingsView: View {
         NavigationView {
             List {
                 Section(header: Text("First run")) {
-                    Picker("Start at:", selection: $vm.range.start) {
-                        ForEach(vm.range.values, id: \.self) {
-                            if $0 < vm.range.finish {
+                    Picker("Start at:", selection: $vm.start) {
+                        ForEach(vm.values, id: \.self) {
+                            if $0 < vm.finish {
                                 Text(String($0))
                             }
                         }
                     }
-                    Picker("Finish at:", selection: $vm.range.finish) {
-                        ForEach(vm.range.values, id: \.self) {
-                            if $0 > vm.range.start {
+                    Picker("Finish at:", selection: $vm.finish) {
+                        ForEach(vm.values, id: \.self) {
+                            if $0 > vm.start {
                                 Text(String($0))
                             }
                         }
@@ -42,18 +42,18 @@ struct SettingsView: View {
                 }
                 
                 Section(header: Text("Optional run")) {
-                    Toggle("Optional run active", isOn: $vm.range.optRunActive.animation())
-                    if vm.range.optRunActive {
-                        Picker("Start at:", selection: $vm.range.optStart) {
-                            ForEach(vm.range.values, id: \.self) {
-                                if $0 < vm.range.optFinish {
+                    Toggle("Optional run active", isOn: $vm.optRunActive.animation())
+                    if vm.optRunActive {
+                        Picker("Start at:", selection: $vm.optStart) {
+                            ForEach(vm.values, id: \.self) {
+                                if $0 < vm.optFinish {
                                     Text(String($0))
                                 }
                             }
                         }
-                        Picker("Finish at:", selection: $vm.range.optFinish) {
-                            ForEach(vm.range.values, id: \.self) {
-                                if $0 > vm.range.optStart {
+                        Picker("Finish at:", selection: $vm.optFinish) {
+                            ForEach(vm.values, id: \.self) {
+                                if $0 > vm.optStart {
                                     Text(String($0))
                                 }
                             }

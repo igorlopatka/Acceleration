@@ -66,7 +66,7 @@ struct RunView: View {
             
             Spacer()
             
-            RunRowListView(vm: vm, range: vm.range, timer: vm.timer, optTimer: vm.optionalTimer)
+            RunRowListView(vm: vm, timer: vm.timer, optTimer: vm.optionalTimer)
                 .frame(alignment: .trailing)
             
             Spacer()
@@ -98,8 +98,8 @@ struct RunView: View {
             vm.resetTimers()
         }
         .onChange(of: vm.speedInUnits, perform: { newValue in
-            let start = Double(vm.range.start)
-            let finish = Double(vm.range.finish)
+            let start = Double(vm.start)
+            let finish = Double(vm.finish)
             
             switch newValue {
             case start...finish:
@@ -111,9 +111,9 @@ struct RunView: View {
                 }
             }
             
-            if vm.range.optRunActive {
-                let optStart = Double(vm.range.optStart)
-                let optFinish = Double(vm.range.optFinish)
+            if vm.optRunActive {
+                let optStart = Double(vm.optStart)
+                let optFinish = Double(vm.optFinish)
                 
                 switch newValue {
                 case optStart...optFinish:
@@ -149,12 +149,12 @@ struct RunView: View {
             newRun.timestamp = Date()
             newRun.id = UUID()
             newRun.title = title
-            newRun.start = Int16(vm.range.start)
-            newRun.finish = Int16(vm.range.finish)
-            newRun.optionalRun = vm.range.optRunActive
+            newRun.start = Int16(vm.start)
+            newRun.finish = Int16(vm.finish)
+            newRun.optionalRun = vm.optRunActive
             if newRun.optionalRun == true {
-                newRun.optionalStart = Int16(vm.range.optStart)
-                newRun.optionalFinish = Int16(vm.range.optFinish)
+                newRun.optionalStart = Int16(vm.optStart)
+                newRun.optionalFinish = Int16(vm.optFinish)
                 newRun.optionalTime = vm.optionalTimer.counter
             }
             newRun.time = vm.timer.counter
