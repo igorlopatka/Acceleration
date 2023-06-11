@@ -81,17 +81,12 @@ struct SettingsView: View {
     
     func aboutText() -> some View {
         VStack {
-            Text("[Privacy Policy](https://example.com)")
-            Text("[About Me](https://example.com)")
-            
-            
-            Text("Lorem ipsum")
-
+            Text("Read [Privacy Policy](https://github.com/igorlopatka/Acceleration/blob/master/AccelerationX%20-%20Privacy%20Policy.md), or learn more about developer that created this app: [About Me](https://github.com/igorlopatka).")
         }
     }
-}
     struct SetingsView_Previews: PreviewProvider {
         static var previews: some View {
             SettingsView(vm: RunViewModel())
         }
     }
+}
