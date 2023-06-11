@@ -81,6 +81,17 @@
                ReferencedContainer = "container:AccelerationX.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "451FAB9A2A3361EE003DA408"
+               BuildableName = "AccelerationXTests.xctest"
+               BlueprintName = "AccelerationXTests"
+               ReferencedContainer = "container:AccelerationX.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		450B83E129426D0F008E6232 /* Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B83E029426D0F008E6232 /* Signal.swift */; };
+		451FAB9E2A3361EE003DA408 /* AccelerationXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451FAB9D2A3361EE003DA408 /* AccelerationXTests.swift */; };
+		451FABA42A3361FA003DA408 /* RunViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451FAB952A3361CC003DA408 /* RunViewModelTests.swift */; };
 		454DD30B2922BE8E0068FCCA /* UnitSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454DD30A2922BE8E0068FCCA /* UnitSwitchView.swift */; };
 		45531A1327DF5F1300F9897D /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1227DF5F1300F9897D /* HistoryView.swift */; };
 		45531A1527DF60E000F9897D /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45531A1427DF60E000F9897D /* RunView.swift */; };
@@ -36,8 +38,21 @@
 		45DF85FC292F8EBB0050799F /* UnitSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF85FB292F8EBB0050799F /* UnitSymbolView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		451FAB9F2A3361EE003DA408 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45B805CA27C2AAB700E9D57B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45B805D127C2AAB700E9D57B;
+			remoteInfo = AccelerationX;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		450B83E029426D0F008E6232 /* Signal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signal.swift; sourceTree = "<group>"; };
+		451FAB952A3361CC003DA408 /* RunViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunViewModelTests.swift; sourceTree = "<group>"; };
+		451FAB9B2A3361EE003DA408 /* AccelerationXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccelerationXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		451FAB9D2A3361EE003DA408 /* AccelerationXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationXTests.swift; sourceTree = "<group>"; };
 		454DD30A2922BE8E0068FCCA /* UnitSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSwitchView.swift; sourceTree = "<group>"; };
 		45531A1227DF5F1300F9897D /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		45531A1427DF60E000F9897D /* RunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunView.swift; sourceTree = "<group>"; };
@@ -68,6 +83,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		451FAB982A3361EE003DA408 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45B805CF27C2AAB700E9D57B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		451FAB9C2A3361EE003DA408 /* AccelerationXTests */ = {
+			isa = PBXGroup;
+			children = (
+				451FAB952A3361CC003DA408 /* RunViewModelTests.swift */,
+				451FAB9D2A3361EE003DA408 /* AccelerationXTests.swift */,
+			);
+			path = AccelerationXTests;
+			sourceTree = "<group>";
+		};
 		4597335D2922C21F00B938C7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				45B805D427C2AAB700E9D57B /* AccelerationX */,
+				451FAB9C2A3361EE003DA408 /* AccelerationXTests */,
 				45B805D327C2AAB700E9D57B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				45B805D227C2AAB700E9D57B /* AccelerationX.app */,
+				451FAB9B2A3361EE003DA408 /* AccelerationXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,6 +237,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		451FAB9A2A3361EE003DA408 /* AccelerationXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 451FABA12A3361EE003DA408 /* Build configuration list for PBXNativeTarget "AccelerationXTests" */;
+			buildPhases = (
+				451FAB972A3361EE003DA408 /* Sources */,
+				451FAB982A3361EE003DA408 /* Frameworks */,
+				451FAB992A3361EE003DA408 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				451FABA02A3361EE003DA408 /* PBXTargetDependency */,
+			);
+			name = AccelerationXTests;
+			productName = AccelerationXTests;
+			productReference = 451FAB9B2A3361EE003DA408 /* AccelerationXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		45B805D127C2AAB700E9D57B /* AccelerationX */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45B805FB27C2AAB800E9D57B /* Build configuration list for PBXNativeTarget "AccelerationX" */;
@@ -231,9 +282,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
+					451FAB9A2A3361EE003DA408 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 45B805D127C2AAB700E9D57B;
+					};
 					45B805D127C2AAB700E9D57B = {
 						CreatedOnToolsVersion = 13.1;
 					};
@@ -256,11 +311,19 @@
 			projectRoot = "";
 			targets = (
 				45B805D127C2AAB700E9D57B /* AccelerationX */,
+				451FAB9A2A3361EE003DA408 /* AccelerationXTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		451FAB992A3361EE003DA408 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45B805D027C2AAB700E9D57B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,6 +337,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		451FAB972A3361EE003DA408 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				451FABA42A3361FA003DA408 /* RunViewModelTests.swift in Sources */,
+				451FAB9E2A3361EE003DA408 /* AccelerationXTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45B805CE27C2AAB700E9D57B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -306,7 +378,64 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		451FABA02A3361EE003DA408 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45B805D127C2AAB700E9D57B /* AccelerationX */;
+			targetProxy = 451FAB9F2A3361EE003DA408 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		451FABA22A3361EE003DA408 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6A7T62L69W;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.igorlopatka.AccelerationXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AccelerationX.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AccelerationX";
+			};
+			name = Debug;
+		};
+		451FABA32A3361EE003DA408 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6A7T62L69W;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.igorlopatka.AccelerationXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AccelerationX.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AccelerationX";
+			};
+			name = Release;
+		};
 		45B805F927C2AAB800E9D57B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -494,6 +623,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		451FABA12A3361EE003DA408 /* Build configuration list for PBXNativeTarget "AccelerationXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				451FABA22A3361EE003DA408 /* Debug */,
+				451FABA32A3361EE003DA408 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		45B805CD27C2AAB700E9D57B /* Build configuration list for PBXProject "AccelerationX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
