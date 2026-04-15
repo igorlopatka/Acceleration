@@ -20,25 +20,30 @@ struct BigTimerLabelView: View {
         optionalTimer.mode == .running ? "TIMER 2" : "TIMER 1"
     }
 
+    private var isRunning: Bool {
+        timer.mode == .running || optionalTimer.mode == .running
+    }
+
     var body: some View {
-        VStack(spacing: 6) {
-            HStack(alignment: .bottom, spacing: 8) {
+        VStack(spacing: 4) {
+            HStack(alignment: .bottom, spacing: 6) {
                 Text(String(format: "%.2f", displayCounter))
-                    .font(.custom("VCR OSD Mono", size: 80))
-                    .foregroundStyle(.white)
+                    .font(.custom("VCR OSD Mono", size: 72))
+                    .foregroundStyle(isRunning ? Color.pink : .white)
+                    .shadow(color: isRunning ? Color.pink.opacity(0.45) : .clear, radius: 10)
                     .contentTransition(.numericText(countsDown: false))
                     .animation(.easeOut(duration: 0.05), value: displayCounter)
 
                 Text("SEC")
-                    .font(.system(size: 12, weight: .semibold))
-                    .foregroundStyle(.secondary)
+                    .font(.system(size: 11, weight: .semibold))
+                    .foregroundStyle(Color(white: 0.38))
                     .tracking(3)
-                    .padding(.bottom, 14)
+                    .padding(.bottom, 12)
             }
 
             Text(timerLabel)
                 .font(.system(size: 10, weight: .medium))
-                .foregroundStyle(Color.pink.opacity(0.8))
+                .foregroundStyle(Color.pink.opacity(0.7))
                 .tracking(4)
         }
     }

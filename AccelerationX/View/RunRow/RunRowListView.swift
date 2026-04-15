@@ -14,66 +14,53 @@ struct RunRowListView: View {
     @ObservedObject var optTimer: TimerManager
 
     var body: some View {
-        VStack(spacing: 12) {
-            // Primary timer row
+        VStack(spacing: 10) {
             timerRow(
                 label: "T1",
                 start: $vm.start,
                 finish: $vm.finish,
-                counter: timer.counter
+                counter: timer.counter,
+                isActive: timer.mode == .running
             )
 
             if vm.optRunActive {
                 Divider()
-                    .background(Color(white: 0.25))
+                    .background(Color(white: 0.2))
 
-                // Optional timer row
                 timerRow(
                     label: "T2",
                     start: $vm.optStart,
                     finish: $vm.optFinish,
-                    counter: optTimer.counter
+                    counter: optTimer.counter,
+                    isActive: optTimer.mode == .running
                 )
             }
 
-            // Add / remove Timer 2 button
-            Button {
-                withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
-                    vm.optRunActive.toggle()
-                }
-            } label: {
-                HStack(spacing: 6) {
-                    Image(systemName: vm.optRunActive ? "minus" : "plus")
-                        .font(.system(size: 12, weight: .bold))
-                    Text(vm.optRunActive ? "Remove Timer 2" : "Add Timer 2")
-                        .font(.system(size: 13, weight: .medium))
-                }
-                .foregroundStyle(vm.optRunActive ? Color.secondary : Color.pink)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 8)
-                .background(Color(white: 0.18))
-                .cornerRadius(10)
-            }
-            .buttonStyle(.plain)
-            .disabled(vm.runActive)
+            addRemoveButton
         }
-        .padding(16)
-        .background(Color(white: 0.12))
+        .padding(14)
+        .background(Color(white: 0.10))
         .cornerRadius(20)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
-                .stroke(Color(white: 0.22), lineWidth: 0.5)
+                .stroke(Color(white: 0.20), lineWidth: 0.5)
         )
     }
 
     @ViewBuilder
-    private func timerRow(label: String, start: Binding<Int>, finish: Binding<Int>, counter: Double) -> some View {
+    private func timerRow(
+        label: String,
+        start: Binding<Int>,
+        finish: Binding<Int>,
+        counter: Double,
+        isActive: Bool
+    ) -> some View {
         HStack(spacing: 8) {
             Text(label)
-                .font(.system(size: 11, weight: .semibold))
-                .foregroundStyle(.secondary)
+                .font(.system(size: 10, weight: .bold))
+                .foregroundStyle(isActive ? .pink : Color(white: 0.38))
                 .tracking(2)
-                .frame(width: 20)
+                .frame(width: 18)
 
             RunRowView(start: start, finish: finish, active: $vm.runActive)
 
@@ -81,9 +68,32 @@ struct RunRowListView: View {
 
             Text(String(format: "%.2f", counter) + "s")
                 .font(.system(size: 15, weight: .bold, design: .monospaced))
-                .foregroundStyle(.white)
+                .foregroundStyle(isActive ? .pink : .white)
+                .shadow(color: isActive ? Color.pink.opacity(0.4) : .clear, radius: 6)
                 .frame(minWidth: 65, alignment: .trailing)
         }
+    }
+
+    private var addRemoveButton: some View {
+        Button {
+            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                vm.optRunActive.toggle()
+            }
+        } label: {
+            HStack(spacing: 6) {
+                Image(systemName: vm.optRunActive ? "minus.circle" : "plus.circle")
+                    .font(.system(size: 13))
+                Text(vm.optRunActive ? "Remove Timer 2" : "Add Timer 2")
+                    .font(.system(size: 13, weight: .medium))
+            }
+            .foregroundStyle(vm.optRunActive ? Color(white: 0.42) : .pink)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 8)
+            .background(Color(white: 0.14))
+            .cornerRadius(10)
+        }
+        .buttonStyle(.plain)
+        .disabled(vm.runActive)
     }
 }
 
