@@ -11,32 +11,29 @@ import CoreData
 struct ContentView: View {
 
     @Environment(\.managedObjectContext) var context
-    @FetchRequest(sortDescriptors: [
-        SortDescriptor(\.title)
-    ]) var runs: FetchedResults<Run>
-    
     @StateObject var vm = RunViewModel()
-    
+
     var body: some View {
         TabView {
             RunView(vm: vm)
                 .tabItem {
-                    Image(systemName: "car")
+                    Image(systemName: "car.fill")
                     Text("Run")
                 }
-            
+
             HistoryView()
                 .tabItem {
-                    Image(systemName: "stopwatch.fill")
+                    Image(systemName: "clock.arrow.circlepath")
                     Text("History")
                 }
             SettingsView(vm: vm)
                 .tabItem {
-                    Image(systemName: "gearshape.2.fill")
+                    Image(systemName: "slider.horizontal.3")
                     Text("Settings")
                 }
         }
         .accentColor(.pink)
+        .preferredColorScheme(.dark)
     }
 }
 
