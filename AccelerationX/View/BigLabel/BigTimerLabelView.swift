@@ -8,29 +8,38 @@
 import SwiftUI
 
 struct BigTimerLabelView: View {
-    
+
     @ObservedObject var timer: TimerManager
     @ObservedObject var optionalTimer: TimerManager
-    
+
+    private var displayCounter: Double {
+        optionalTimer.mode == .running ? optionalTimer.counter : timer.counter
+    }
+
+    private var timerLabel: String {
+        optionalTimer.mode == .running ? "TIMER 2" : "TIMER 1"
+    }
+
     var body: some View {
-        HStack {
-            if optionalTimer.mode == .running {
-                Text(String(format: "%.1f", optionalTimer.counter))
-                    .font(.custom("VCR OSD Mono", size: 100))
-            } else {
-                Text(String(format: "%.1f", timer.counter))
-                    .font(.custom("VCR OSD Mono", size: 100))
+        VStack(spacing: 6) {
+            HStack(alignment: .bottom, spacing: 8) {
+                Text(String(format: "%.2f", displayCounter))
+                    .font(.custom("VCR OSD Mono", size: 80))
+                    .foregroundStyle(.white)
+                    .contentTransition(.numericText(countsDown: false))
+                    .animation(.easeOut(duration: 0.05), value: displayCounter)
+
+                Text("SEC")
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundStyle(.secondary)
+                    .tracking(3)
+                    .padding(.bottom, 14)
             }
-            
-            Text("sec")
-                .font(.custom("VCR OSD Mono", size: 30))
-                .padding(.top, 70)
+
+            Text(timerLabel)
+                .font(.system(size: 10, weight: .medium))
+                .foregroundStyle(Color.pink.opacity(0.8))
+                .tracking(4)
         }
     }
 }
-
-//struct TimerBigLabelView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TimerBigLabelView()
-//    }
-//}

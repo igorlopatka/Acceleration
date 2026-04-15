@@ -8,23 +8,14 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
+
     @ObservedObject var vm: RunViewModel
-    @State private var showAbout = false
-    
-    var unitSelected: String {
-        switch vm.unit {
-        case .kph:
-            return "Kilometers per hour"
-        case .mph:
-            return "Miles per hour"
-        }
-    }
-    
+
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
-                Section(header: Text("First run")) {
+                // ── Primary timer ─────────────────────────────────────────
+                Section {
                     Picker("Start at:", selection: $vm.start) {
                         ForEach(vm.values, id: \.self) {
                             if $0 < vm.finish {
@@ -32,6 +23,8 @@ struct SettingsView: View {
                             }
                         }
                     }
+                    .tint(.pink)
+
                     Picker("Finish at:", selection: $vm.finish) {
                         ForEach(vm.values, id: \.self) {
                             if $0 > vm.start {
@@ -39,10 +32,15 @@ struct SettingsView: View {
                             }
                         }
                     }
+                    .tint(.pink)
+                } header: {
+                    sectionHeader("Timer 1")
                 }
-                
-                Section(header: Text("Optional run")) {
-                    Toggle("Optional run active", isOn: $vm.optRunActive.animation())
+
+                // ── Optional timer ────────────────────────────────────────
+                Section {
+                    Toggle("Enable Timer 2", isOn: $vm.optRunActive.animation())
+
                     if vm.optRunActive {
                         Picker("Start at:", selection: $vm.optStart) {
                             ForEach(vm.values, id: \.self) {
@@ -51,6 +49,8 @@ struct SettingsView: View {
                                 }
                             }
                         }
+                        .tint(.pink)
+
                         Picker("Finish at:", selection: $vm.optFinish) {
                             ForEach(vm.values, id: \.self) {
                                 if $0 > vm.optStart {
@@ -58,35 +58,61 @@ struct SettingsView: View {
                                 }
                             }
                         }
+                        .tint(.pink)
                     }
+                } header: {
+                    sectionHeader("Timer 2")
                 }
-                
-                Section(header: Text("Units (per hour)")) {
-                    Picker("Units: ", selection: $vm.unit) {
-                        Text("KM/H")
-                            .tag(Unit.kph)
-                        Text("M/H")
-                            .tag(Unit.mph)
+
+                // ── Units ─────────────────────────────────────────────────
+                Section {
+                    Picker("Units", selection: $vm.unit) {
+                        Text("KM/H").tag(Unit.kph)
+                        Text("MPH").tag(Unit.mph)
                     }
-                    .pickerStyle(SegmentedPickerStyle())
+                    .pickerStyle(.segmented)
+                    .onChange(of: vm.unit) { _ in
+                        vm.updateUnits()
+                    }
+                } header: {
+                    sectionHeader("Speed Unit")
                 }
-                
-                Section(header: Text("About AccelerationX"), footer: aboutText()) {
-                    
+
+                // ── About ─────────────────────────────────────────────────
+                Section {
+                    Link(destination: URL(string: "https://github.com/igorlopatka/Acceleration/blob/master/AccelerationX%20-%20Privacy%20Policy.md")!) {
+                        Label("Privacy Policy", systemImage: "hand.raised.fill")
+                            .foregroundStyle(.pink)
+                    }
+                    Link(destination: URL(string: "https://github.com/igorlopatka/Acceleration/blob/master/README.md")!) {
+                        Label("GitHub Repository", systemImage: "chevron.left.forwardslash.chevron.right")
+                            .foregroundStyle(.pink)
+                    }
+                    Link(destination: URL(string: "https://github.com/igorlopatka")!) {
+                        Label("About the Developer", systemImage: "person.fill")
+                            .foregroundStyle(.pink)
+                    }
+                } header: {
+                    sectionHeader("About AccelerationX")
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(Color(red: 0.07, green: 0.07, blue: 0.07))
             .navigationTitle("Settings")
         }
     }
-    
-    func aboutText() -> some View {
-        VStack {
-            Text("Read [Privacy Policy](https://github.com/igorlopatka/Acceleration/blob/master/AccelerationX%20-%20Privacy%20Policy.md), learn more about [app](https://github.com/igorlopatka/Acceleration/blob/master/README.md), or developer that created it: [About Me](https://github.com/igorlopatka).")
-        }
+
+    private func sectionHeader(_ title: String) -> some View {
+        Text(title)
+            .font(.system(size: 11, weight: .semibold))
+            .foregroundStyle(.secondary)
+            .tracking(2)
     }
-    struct SetingsView_Previews: PreviewProvider {
-        static var previews: some View {
-            SettingsView(vm: RunViewModel())
-        }
+}
+
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsView(vm: RunViewModel())
+            .preferredColorScheme(.dark)
     }
 }
