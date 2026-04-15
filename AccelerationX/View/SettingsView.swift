@@ -14,48 +14,42 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                // ── Primary timer ─────────────────────────────────────────
+                // ── Primary timer ─────────────────────────────────────────────
                 Section {
                     Picker("Start at:", selection: $vm.start) {
                         ForEach(vm.values, id: \.self) {
-                            if $0 < vm.finish {
-                                Text(String($0))
-                            }
+                            if $0 < vm.finish { Text(String($0)) }
                         }
                     }
                     .tint(.pink)
 
                     Picker("Finish at:", selection: $vm.finish) {
                         ForEach(vm.values, id: \.self) {
-                            if $0 > vm.start {
-                                Text(String($0))
-                            }
+                            if $0 > vm.start { Text(String($0)) }
                         }
                     }
                     .tint(.pink)
                 } header: {
                     sectionHeader("Timer 1")
                 }
+                .listRowBackground(Color(white: 0.12))
 
-                // ── Optional timer ────────────────────────────────────────
+                // ── Optional timer ────────────────────────────────────────────
                 Section {
                     Toggle("Enable Timer 2", isOn: $vm.optRunActive.animation())
+                        .tint(.pink)
 
                     if vm.optRunActive {
                         Picker("Start at:", selection: $vm.optStart) {
                             ForEach(vm.values, id: \.self) {
-                                if $0 < vm.optFinish {
-                                    Text(String($0))
-                                }
+                                if $0 < vm.optFinish { Text(String($0)) }
                             }
                         }
                         .tint(.pink)
 
                         Picker("Finish at:", selection: $vm.optFinish) {
                             ForEach(vm.values, id: \.self) {
-                                if $0 > vm.optStart {
-                                    Text(String($0))
-                                }
+                                if $0 > vm.optStart { Text(String($0)) }
                             }
                         }
                         .tint(.pink)
@@ -63,22 +57,22 @@ struct SettingsView: View {
                 } header: {
                     sectionHeader("Timer 2")
                 }
+                .listRowBackground(Color(white: 0.12))
 
-                // ── Units ─────────────────────────────────────────────────
+                // ── Units ─────────────────────────────────────────────────────
                 Section {
                     Picker("Units", selection: $vm.unit) {
                         Text("KM/H").tag(Unit.kph)
                         Text("MPH").tag(Unit.mph)
                     }
                     .pickerStyle(.segmented)
-                    .onChange(of: vm.unit) { _ in
-                        vm.updateUnits()
-                    }
+                    .onChange(of: vm.unit) { _ in vm.updateUnits() }
                 } header: {
                     sectionHeader("Speed Unit")
                 }
+                .listRowBackground(Color(white: 0.12))
 
-                // ── About ─────────────────────────────────────────────────
+                // ── About ─────────────────────────────────────────────────────
                 Section {
                     Link(destination: URL(string: "https://github.com/igorlopatka/Acceleration/blob/master/AccelerationX%20-%20Privacy%20Policy.md")!) {
                         Label("Privacy Policy", systemImage: "hand.raised.fill")
@@ -95,9 +89,11 @@ struct SettingsView: View {
                 } header: {
                     sectionHeader("About AccelerationX")
                 }
+                .listRowBackground(Color(white: 0.12))
             }
+            .listRowSeparatorTint(Color(white: 0.20))
             .scrollContentBackground(.hidden)
-            .background(Color(red: 0.07, green: 0.07, blue: 0.07))
+            .background(Color(white: 0.06))
             .navigationTitle("Settings")
         }
     }
@@ -105,7 +101,7 @@ struct SettingsView: View {
     private func sectionHeader(_ title: String) -> some View {
         Text(title)
             .font(.system(size: 11, weight: .semibold))
-            .foregroundStyle(.secondary)
+            .foregroundStyle(Color(white: 0.45))
             .tracking(2)
     }
 }

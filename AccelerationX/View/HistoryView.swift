@@ -27,8 +27,8 @@ struct HistoryView: View {
                             } label: {
                                 RunHistoryRow(run: run)
                             }
-                            .listRowBackground(Color(white: 0.12))
-                            .listRowSeparatorTint(Color(white: 0.22))
+                            .listRowBackground(Color(white: 0.10))
+                            .listRowSeparatorTint(Color(white: 0.18))
                         }
                         .onDelete(perform: deleteItems)
                     }
@@ -43,15 +43,15 @@ struct HistoryView: View {
                         .tint(.pink)
                 }
             }
-            .background(Color(red: 0.07, green: 0.07, blue: 0.07))
+            .background(Color(white: 0.06))
         }
     }
 
     private var emptyState: some View {
-        VStack(spacing: 14) {
+        VStack(spacing: 16) {
             Image(systemName: "flag.checkered")
-                .font(.system(size: 56))
-                .foregroundStyle(Color(white: 0.35))
+                .font(.system(size: 52))
+                .foregroundStyle(Color(white: 0.28))
             Text("No Runs Yet")
                 .font(.title2.bold())
                 .foregroundStyle(.white)
@@ -61,7 +61,7 @@ struct HistoryView: View {
                 .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(red: 0.07, green: 0.07, blue: 0.07))
+        .background(Color(white: 0.06))
     }
 
     private func deleteItems(offsets: IndexSet) {
@@ -83,30 +83,52 @@ private struct RunHistoryRow: View {
     let run: Run
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text(run.title ?? "Untitled Run")
-                .font(.system(size: 16, weight: .semibold))
-                .foregroundStyle(.white)
-
-            HStack {
-                Text("\(run.start) → \(run.finish) \(run.unit ?? "")")
-                    .font(.system(size: 13, weight: .medium, design: .monospaced))
+        HStack(spacing: 14) {
+            // Speed range badge
+            VStack(alignment: .center, spacing: 3) {
+                Text("\(run.start)")
+                    .font(.system(size: 12, weight: .bold, design: .monospaced))
+                    .foregroundStyle(.white)
+                Image(systemName: "arrow.down")
+                    .font(.system(size: 8, weight: .bold))
                     .foregroundStyle(.pink)
-
-                Spacer()
-
-                Text(String(format: "%.2f", run.time) + " sec")
-                    .font(.system(size: 13, weight: .bold, design: .monospaced))
+                Text("\(run.finish)")
+                    .font(.system(size: 12, weight: .bold, design: .monospaced))
                     .foregroundStyle(.white)
             }
+            .frame(width: 38)
+            .padding(.vertical, 8)
+            .background(Color(white: 0.17))
+            .cornerRadius(10)
 
-            if let ts = run.timestamp {
-                Text(ts, style: .date)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(run.title ?? "Untitled Run")
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundStyle(.white)
+
+                Text("\(run.start) → \(run.finish) \(run.unit ?? "")")
+                    .font(.system(size: 12, weight: .medium, design: .monospaced))
+                    .foregroundStyle(.pink)
+
+                if let ts = run.timestamp {
+                    Text(ts, style: .date)
+                        .font(.system(size: 11))
+                        .foregroundStyle(Color(white: 0.38))
+                }
+            }
+
+            Spacer()
+
+            VStack(alignment: .trailing, spacing: 2) {
+                Text(String(format: "%.2f", run.time))
+                    .font(.custom("VCR OSD Mono", size: 22))
+                    .foregroundStyle(.white)
+                Text("sec")
                     .font(.system(size: 11))
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Color(white: 0.38))
             }
         }
-        .padding(.vertical, 6)
+        .padding(.vertical, 8)
     }
 }
 

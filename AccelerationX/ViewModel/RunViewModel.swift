@@ -9,137 +9,111 @@ import CoreLocation
 import SwiftUI
 
 class RunViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    
-    @AppStorage("start") var start = 0
-    @AppStorage("finish") var finish = 100
+
+    @AppStorage("start")      var start      = 0
+    @AppStorage("finish")     var finish      = 100
     @AppStorage("optRunActive") var optRunActive = false
-    @AppStorage("optStart") var optStart = 100
-    @AppStorage("optFinish") var optFinish = 200
-    
-    let values = [0,20,40,60,80,100,120,140,160,180,200,220,240,260,280,300]
-    
-    var timer = TimerManager()
+    @AppStorage("optStart")   var optStart    = 100
+    @AppStorage("optFinish")  var optFinish   = 200
+
+    let values = [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300]
+
+    var timer         = TimerManager()
     var optionalTimer = TimerManager()
-    
-    @Published var runActive = false
+
+    @Published var runActive   = false
     @Published var runFinished = false
-    
+    @Published var peakSpeed   = 0.0
+
     @Published var authorizationStatus: CLAuthorizationStatus
     @Published var lastSeenLocation: CLLocation?
-    
-    @Published var unit = Unit.kph
+
+    @Published var unit       = Unit.kph
     @Published var multiplier = 3.6
-    @Published var title = "kmh"
-    
-    //MARK: - Location Manager State
-    
+    @Published var title      = "kmh"
+
+    // MARK: - Location Manager
+
     private let locationManager: CLLocationManager
-    
+
     override init() {
         locationManager = CLLocationManager()
         authorizationStatus = locationManager.authorizationStatus
-        
         super.init()
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 0.4
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager.distanceFilter  = kCLDistanceFilterNone
         locationManager.startUpdatingLocation()
     }
-    
+
     func requestPermission() {
         if authorizationStatus == .notDetermined {
             locationManager.requestWhenInUseAuthorization()
         }
     }
-    
+
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         authorizationStatus = manager.authorizationStatus
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         lastSeenLocation = locations.first
+        // Track peak speed (only while a run is in progress or has started)
+        let current = speedInUnits
+        if current > peakSpeed {
+            peakSpeed = current
+        }
     }
-    
-    var gpsAccuracy: Double {
-        let accuracy =  lastSeenLocation?.horizontalAccuracy
-        return Double(accuracy ?? 0)
-    }
-    
+
+    // MARK: - Speed
+
+    /// Raw speed in m/s. Returns 0 for invalid, unavailable, or very low readings.
     var speed: Double {
-        let speedMS = lastSeenLocation?.speed ?? 0
-        let speedDouble = Double(speedMS)
-        
-        if speedDouble <= 2 {
-            return 0
-        } else {
-            return speedDouble
-        }
+        guard let location = lastSeenLocation,
+              location.speedAccuracy >= 0,
+              location.speed > 0 else { return 0 }
+        let speedMS = location.speed
+        return speedMS <= 2.0 ? 0 : speedMS
     }
-    
+
     var speedInUnits: Double {
-        let inUnits = speed * multiplier
-        return inUnits
+        speed * multiplier
     }
-    
-    // MARK: - GPS Signal State
-    
+
+    // MARK: - GPS Signal Quality
+
+    /// Returns signal quality based on horizontal accuracy.
+    /// Returns `.none` when no location fix has been obtained.
     var signalQuality: Signal {
-        if (gpsAccuracy < 0) {
-            return .none
-        } else if (gpsAccuracy > 150) {
-            return .weak
-        } else if (gpsAccuracy > 50) {
-            return .mediocre
-        } else {
-            return .good
-        }
+        guard let location = lastSeenLocation else { return .none }
+        let accuracy = location.horizontalAccuracy
+        if accuracy < 0   { return .none }
+        if accuracy > 150 { return .weak }
+        if accuracy > 50  { return .mediocre }
+        return .good
     }
-    
-    func updateSignalSymbol() -> String {
-        if signalQuality == .none {
-            return "antenna.radiowaves.left.and.right.slash"
-        } else {
-            return "antenna.radiowaves.left.and.right"
-        }
-    }
-    
-    func updateSignalColor() -> Color {
-        switch signalQuality {
-        case .good:
-            return .green
-        case .mediocre:
-            return .yellow
-        case .weak:
-            return .red
-        case .none:
-            return .black
-        }
-    }
-    
-    //MARK: - Timer Managers State
-    
+
+    // MARK: - Timer State
+
     func updateRunState() {
-        if timer.mode == .running || optionalTimer.mode == .running {
-            runActive = true
-        } else {
-            runActive = false
-        }
+        runActive = timer.mode == .running || optionalTimer.mode == .running
     }
-    
+
     func resetTimers() {
         timer.reset()
         optionalTimer.reset()
+        peakSpeed = 0.0
     }
-    
-    //MARK: - Unit Manager State
-    
+
+    // MARK: - Units
+
     func updateUnits() {
         switch unit {
         case .kph:
             multiplier = 3.6
             title = "kmh"
         case .mph:
-            multiplier = 2.2369
+            multiplier = 2.23694
             title = "mph"
         }
     }

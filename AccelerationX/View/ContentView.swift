@@ -17,7 +17,7 @@ struct ContentView: View {
         TabView {
             RunView(vm: vm)
                 .tabItem {
-                    Image(systemName: "car.fill")
+                    Image(systemName: "gauge.with.needle.fill")
                     Text("Run")
                 }
 
@@ -26,13 +26,14 @@ struct ContentView: View {
                     Image(systemName: "clock.arrow.circlepath")
                     Text("History")
                 }
+
             SettingsView(vm: vm)
                 .tabItem {
                     Image(systemName: "slider.horizontal.3")
                     Text("Settings")
                 }
         }
-        .accentColor(.pink)
+        .tint(.pink)
         .preferredColorScheme(.dark)
     }
 }

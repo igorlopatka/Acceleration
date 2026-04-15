@@ -13,12 +13,12 @@ struct DetailsView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 16) {
+            VStack(spacing: 14) {
 
-                // ── Title card ────────────────────────────────────────────
+                // ── Header card ───────────────────────────────────────────────
                 VStack(spacing: 6) {
                     Text(run.title ?? "Untitled Run")
-                        .font(.system(size: 26, weight: .bold))
+                        .font(.system(size: 24, weight: .bold))
                         .foregroundStyle(.white)
                         .multilineTextAlignment(.center)
 
@@ -29,11 +29,16 @@ struct DetailsView: View {
                     }
                 }
                 .frame(maxWidth: .infinity)
-                .padding(20)
-                .background(Color(white: 0.12))
+                .padding(.vertical, 22)
+                .padding(.horizontal, 20)
+                .background(Color(white: 0.10))
                 .cornerRadius(20)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color(white: 0.20), lineWidth: 0.5)
+                )
 
-                // ── Primary timer card ────────────────────────────────────
+                // ── Primary timer card ────────────────────────────────────────
                 DetailRunCard(
                     label: "TIMER 1",
                     start: Int(run.start),
@@ -42,7 +47,7 @@ struct DetailsView: View {
                     unit: run.unit ?? "kmh"
                 )
 
-                // ── Optional timer card ───────────────────────────────────
+                // ── Optional timer card ───────────────────────────────────────
                 if run.optionalRun {
                     DetailRunCard(
                         label: "TIMER 2",
@@ -53,11 +58,11 @@ struct DetailsView: View {
                     )
                 }
             }
-            .padding(20)
+            .padding(16)
         }
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
-        .background(Color(red: 0.07, green: 0.07, blue: 0.07).ignoresSafeArea())
+        .background(Color(white: 0.06).ignoresSafeArea())
     }
 }
 
@@ -71,41 +76,63 @@ private struct DetailRunCard: View {
     let unit: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
+        VStack(alignment: .leading, spacing: 16) {
+
+            // Label
             Text(label)
                 .font(.system(size: 11, weight: .semibold))
                 .foregroundStyle(.secondary)
                 .tracking(3)
 
-            HStack(alignment: .bottom) {
-                VStack(alignment: .leading, spacing: 4) {
+            // Time result - hero display
+            HStack(alignment: .bottom, spacing: 0) {
+                Text(String(format: "%.2f", time))
+                    .font(.custom("VCR OSD Mono", size: 52))
+                    .foregroundStyle(.white)
+                    .shadow(color: Color.pink.opacity(0.25), radius: 10)
+
+                Text(" sec")
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundStyle(Color(white: 0.4))
+                    .padding(.bottom, 8)
+            }
+            .frame(maxWidth: .infinity, alignment: .trailing)
+
+            Divider()
+                .background(Color(white: 0.2))
+
+            // Range row
+            HStack {
+                VStack(alignment: .leading, spacing: 3) {
                     Text("RANGE")
-                        .font(.system(size: 9, weight: .medium))
-                        .foregroundStyle(Color(white: 0.4))
+                        .font(.system(size: 9, weight: .semibold))
+                        .foregroundStyle(Color(white: 0.35))
                         .tracking(2)
                     Text("\(start) → \(finish) \(unit)")
-                        .font(.system(size: 17, weight: .semibold, design: .monospaced))
+                        .font(.system(size: 16, weight: .semibold, design: .monospaced))
                         .foregroundStyle(.pink)
                 }
 
                 Spacer()
 
-                VStack(alignment: .trailing, spacing: 2) {
-                    Text(String(format: "%.2f", time))
-                        .font(.custom("VCR OSD Mono", size: 44))
-                        .foregroundStyle(.white)
-                    Text("seconds")
-                        .font(.system(size: 12))
-                        .foregroundStyle(.secondary)
+                // Speed delta badge
+                VStack(alignment: .trailing, spacing: 3) {
+                    Text("DELTA")
+                        .font(.system(size: 9, weight: .semibold))
+                        .foregroundStyle(Color(white: 0.35))
+                        .tracking(2)
+                    Text("\(finish - start) \(unit)")
+                        .font(.system(size: 16, weight: .semibold, design: .monospaced))
+                        .foregroundStyle(Color(white: 0.75))
                 }
             }
         }
         .padding(20)
-        .background(Color(white: 0.12))
+        .background(Color(white: 0.10))
         .cornerRadius(20)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.pink.opacity(0.25), lineWidth: 0.5)
+                .stroke(Color.pink.opacity(0.22), lineWidth: 0.5)
         )
     }
 }
