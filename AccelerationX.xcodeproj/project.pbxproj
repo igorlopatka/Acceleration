@@ -565,6 +565,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AccelerationX/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AccelerationX;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use GPS to track your speed";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We use GPS to track your speed";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use GPS to track your speed";
@@ -602,6 +603,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AccelerationX/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AccelerationX;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use GPS to track your speed";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We use GPS to track your speed";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use GPS to track your speed";
@@ -664,7 +666,7 @@
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				minimumVersion = 11.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
